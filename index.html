@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeKit — Hiểu dữ liệu, nhìn rõ hướng đi</title>
+  <meta name="description" content="Nhập Excel hoặc CSV, kiểm tra dữ liệu và phân tích trong quy trình có kiểm duyệt.">
+  
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script src="assets/lucide.js"></script>
+  <script src="assets/xlsx.full.min.js"></script>
+  <script src="assets/papaparse.min.js"></script>
+  <script src="assets/chart.umd.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=15.1">
+  <link rel="stylesheet" href="ui.css?v=20.0">
+  <link rel="stylesheet" href="warm-glass.css?v=20.8-workflow">
+  <link rel="stylesheet" href="welcome.css?v=22.2">
+</head>
+<body class="cover-view">
+
+  <section class="welcome-cover" id="welcomeCover" aria-labelledby="coverTitle">
+    <header class="cover-header cover-enter">
+      <div class="cover-brand" aria-label="CodeKit">
+        <span class="cover-brand-icon" aria-hidden="true"><i data-lucide="layers-2"></i></span>
+        <span>CodeKit<span class="cover-brand-dot">.</span></span>
+      </div>
+    </header>
+    <main class="cover-main">
+      <div class="cover-hero">
+        <div class="cover-story">
+          <h1 id="coverTitle"><span class="cover-title-lead">Dữ liệu rõ ràng.</span> <span class="cover-title-accent">Quyết định vững vàng.</span></h1>
+          <p class="cover-description cover-enter">Kiểm tra, làm sạch và phân tích Excel hoặc CSV ngay trong trình duyệt. Duyệt kết quả trước khi xuất.</p>
+          <div class="cover-actions">
+            <button type="button" class="cover-button cover-button-primary" id="coverStart">Bắt đầu phân tích <i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+            <button type="button" class="cover-button cover-button-secondary" id="coverDemo"><i data-lucide="play" aria-hidden="true"></i> Thử dữ liệu mẫu</button>
+          </div>
+        </div>
+        <figure class="cover-visual cover-enter" aria-label="CodeKit chuyển bảng tính Excel hoặc CSV thành báo cáo">
+          <div class="cover-orbit" aria-hidden="true"></div>
+          <div class="cover-flow" aria-hidden="true">
+            <div class="cover-flow-file"><i data-lucide="file-spreadsheet"></i><span>Excel / CSV</span></div>
+            <div class="cover-flow-line"><span></span></div>
+            <div class="cover-flow-core"><i data-lucide="layers-2"></i></div>
+            <div class="cover-flow-line"><span></span></div>
+            <div class="cover-flow-file"><i data-lucide="chart-no-axes-combined"></i><span>Báo cáo</span></div>
+          </div>
+        </figure>
+      </div>
+
+    </main>
+    <noscript><p class="cover-noscript">Vui lòng bật JavaScript trong trình duyệt để bắt đầu phân tích dữ liệu.</p></noscript>
+  </section>
+
+  <div class="app-layout" id="appLayout" hidden inert>
+    <header class="topbar">
+      <a class="wordmark" href="#" data-view="overview" aria-label="CodeKit - Tổng quan"><span class="logo-symbol">c<span></span></span>CodeKit<span class="wordmark-dot">.</span></a>
+      <div class="workspace-presence" aria-label="AI Data Agent sẵn sàng"><span class="agent-orb" aria-hidden="true"></span><span>Không gian cho những quyết định tốt hơn</span><span class="presence-tag">AI AGENT</span></div>
+      <nav class="topnav" aria-label="Điều hướng chính">
+        <button class="topnav-link" data-view="overview">Tổng quan</button>
+        <button class="topnav-link active" data-view="workflow">Quy trình AI <span class="tiny-dot"></span></button>
+        <button class="topnav-link" data-view="data">Dữ liệu</button>
+        <button class="topnav-link" data-view="reports">Báo cáo</button>
+      </nav>
+      <div class="topbar-actions">
+        <button type="button" class="round-action" id="backToCover" aria-label="Về trang giới thiệu" title="Về trang giới thiệu"><i data-lucide="house"></i></button>
+        <button class="round-action" id="toggleOverviewSearch" aria-label="Tìm kiếm đơn hàng" title="Tìm kiếm đơn hàng"><i data-lucide="search"></i></button>
+        <button class="round-action theme-switch" id="themeSwitch" aria-label="Đổi giao diện sáng tối" title="Đổi giao diện sáng / tối"><span class="switch-handle"><i data-lucide="sun" class="sun-icon"></i><i data-lucide="moon" class="moon-icon"></i></span></button>
+        <button class="profile-avatar" id="profileToggle" aria-label="Không gian cá nhân" aria-expanded="false">C<span class="online-dot"></span></button>
+      </div>
+      <div class="header-popover" id="headerPopover" hidden></div>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Thanh công cụ">
+      <nav class="nav-menu">
+        <a href="#" class="nav-item" data-view="overview" title="Tổng quan" aria-label="Tổng quan"><i data-lucide="layout-grid"></i><span class="rail-label">Tổng quan</span></a>
+        <a href="#" class="nav-item active" data-view="workflow" title="Quy trình AI" aria-label="Quy trình AI"><i data-lucide="chart-no-axes-combined"></i><span class="rail-label">Quy trình AI</span></a>
+        <a href="#" class="nav-item" data-view="data" title="Dữ liệu" aria-label="Dữ liệu"><i data-lucide="database"></i><span class="rail-label">Dữ liệu</span></a>
+        <a href="#" class="nav-item" data-view="reports" title="Báo cáo" aria-label="Báo cáo"><i data-lucide="file-chart-column"></i><span class="rail-label">Báo cáo</span></a>
+        <span class="rail-divider"></span>
+        <button class="nav-item" data-view="upload" title="Tải bảng tính" aria-label="Tải bảng tính"><i data-lucide="folder-up"></i><span class="rail-label">Tải bảng tính</span></button>
+        <button class="nav-item" id="railDownloadSample" title="Tải dữ liệu mẫu" aria-label="Tải dữ liệu mẫu"><i data-lucide="download"></i><span class="rail-label">Dữ liệu mẫu</span></button>
+        <button class="nav-item" id="railHelp" title="Hướng dẫn" aria-label="Hướng dẫn"><i data-lucide="circle-help"></i><span class="rail-label">Hướng dẫn</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" id="btnOpenSchemaConfig" title="Cấu hình cột bắt buộc" aria-label="Cấu hình cột bắt buộc"><i data-lucide="settings-2"></i><span class="rail-label">Cấu hình dữ liệu</span></button>
+        <button class="nav-item" id="btnResetWorkflow" title="Làm mới quy trình" aria-label="Làm mới quy trình"><i data-lucide="rotate-ccw"></i><span class="rail-label">Làm mới quy trình</span></button>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <main class="main-viewport">
+      <div class="content-container">
+        <section class="welcome-row">
+          <div class="welcome-intro">
+            <span class="eyebrow"><span class="live-dot"></span> KHÔNG GIAN LÀM VIỆC CỦA BẠN</span>
+            <h1 id="workspaceTitle" tabindex="-1">Không gian <span>phân tích dữ liệu</span></h1>
+            <p class="welcome-description">Nhập bảng tính Excel/CSV, kiểm định khóa chính tự động, lọc nhiễu AI và xuất báo cáo tức thì.</p>
+            <div class="welcome-highlights">
+              <span class="hero-stat-pill"><i data-lucide="shield-check"></i> Bảo mật 100% trên trình duyệt</span>
+              <span class="hero-stat-pill"><i data-lucide="key-round"></i> Đối soát 5 khóa chính chuẩn</span>
+              <span class="hero-stat-pill"><i data-lucide="sparkles"></i> AI tự sửa lỗi &amp; làm sạch</span>
+            </div>
+          </div>
+          <div class="welcome-actions">
+            <span class="date-chip"><i data-lucide="calendar-days"></i><span id="overviewDateRange">Chưa chọn bảng tính</span></span>
+            <div class="welcome-cta-group">
+              <button type="button" class="btn btn-secondary welcome-sample-btn" onclick="document.getElementById('btnDemoSuccess')?.click()"><i data-lucide="sparkles"></i> Thử dữ liệu mẫu</button>
+              <button class="btn btn-primary upload-top-btn" data-view="upload"><i data-lucide="plus"></i> Thêm bảng tính</button>
+            </div>
+          </div>
+        </section>
+
+
+        <div id="restoreSessionBanner" class="overview-lock-banner" hidden><span class="overview-banner-icon"><i data-lucide="history"></i></span><div><strong>Có phiên làm việc chưa hoàn tất</strong><p id="restoreSessionDescription"></p></div><button type="button" class="btn btn-primary" id="btnRestoreSession">Tiếp tục phiên</button><button type="button" class="btn btn-secondary" id="btnDiscardSession">Xóa bản nháp</button></div>
+        <div class="workflow-section-heading" id="workflowHeading">
+          <div class="workflow-heading-left">
+            <span class="workflow-heading-icon"><i data-lucide="workflow"></i></span>
+            <div>
+              <span class="eyebrow">TỪ BẢNG TÍNH ĐẾN QUYẾT ĐỊNH</span>
+              <h2>Quy trình phân tích AI <span class="step-count-pill">6 bước</span></h2>
+            </div>
+          </div>
+          <span class="workflow-ready"><span class="live-dot"></span><span id="navStepPill">Sẵn sàng bắt đầu</span></span>
+        </div>
+
+        <section class="workflow-stepper-bar">
+          <div class="stepper-item active" id="stepIndicator1" onclick="jumpToStep(1)">
+            <div class="stepper-circle"><i data-lucide="file-up"></i></div>
+            <div class="stepper-info">
+              <span class="s-index">BƯỚC 1</span>
+              <span class="s-title">Nhập dữ liệu</span>
+            </div>
+          </div>
+          <div class="stepper-line" id="line1"></div>
+
+          <div class="stepper-item" id="stepIndicator2" onclick="jumpToStep(2)">
+            <div class="stepper-circle"><i data-lucide="sparkles"></i></div>
+            <div class="stepper-info">
+              <span class="s-index">BƯỚC 2</span>
+              <span class="s-title">Làm sạch dữ liệu</span>
+            </div>
+          </div>
+          <div class="stepper-line" id="line2"></div>
+
+          <div class="stepper-item" id="stepIndicator3" onclick="jumpToStep(3)">
+            <div class="stepper-circle"><i data-lucide="user-check"></i></div>
+            <div class="stepper-info">
+              <span class="s-index">BƯỚC 3</span>
+              <span class="s-title">Duyệt dữ liệu</span>
+            </div>
+          </div>
+          <div class="stepper-line" id="line3"></div>
+
+          <div class="stepper-item" id="stepIndicator4" onclick="jumpToStep(4)">
+            <div class="stepper-circle"><i data-lucide="brain-circuit"></i></div>
+            <div class="stepper-info">
+              <span class="s-index">BƯỚC 4</span>
+              <span class="s-title">Phân tích</span>
+            </div>
+          </div>
+          <div class="stepper-line" id="line4"></div>
+          <div class="stepper-item" id="stepIndicator5" onclick="jumpToStep(5)">
+            <div class="stepper-circle"><i data-lucide="chart-no-axes-combined"></i></div>
+            <div class="stepper-info"><span class="s-index">BƯỚC 5</span><span class="s-title">Kết quả &amp; đề xuất</span></div>
+          </div>
+          <div class="stepper-line" id="line5"></div>
+
+          <div class="stepper-item" id="stepIndicator6" onclick="jumpToStep(6)">
+            <div class="stepper-circle"><i data-lucide="file-check-2"></i></div>
+            <div class="stepper-info">
+              <span class="s-index">BƯỚC 6</span>
+              <span class="s-title">Nghiệm thu</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= KHU VỰC ĐIỀU HÀNH PIPELINE TỪNG BƯỚC ================= -->
+        <section class="workflow-main-card">
+
+          <!-- ---------------- BƯỚC 1: IMPORT & ĐỐI SOÁT (BÊN NGOÀI TRẮNG, BÊN TRONG CAM) ---------------- -->
+          <div class="pipeline-step-pane active" id="paneStep1">
+            <div class="step1-clean-white-card">
+              <div class="hero-top-badge-row">
+                <div class="hero-badge badge-coral-outline">
+                  <i data-lucide="sparkles"></i>
+                  <span>BƯỚC 01 / NHẬP DỮ LIỆU</span>
+                </div>
+                <span class="tier-tag tag-coral-pill">Sẵn sàng kết nối</span>
+              </div>
+
+              <div class="hero-title-block">
+                <h2>Bắt đầu với bảng tính của bạn.</h2>
+                <p>Chọn file Excel hoặc CSV. Xem trước và xác nhận dữ liệu trước khi làm sạch.</p>
+              </div>
+
+              <div class="import-interactive-zone">
+                <!-- Dropzone BÊN TRONG THÀNH CAM RỰC RỠ -->
+                <div class="dropzone orange-hero-dropzone" id="fileDropzone">
+                  <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+                  <div class="dropzone-icon white-icon-circle">
+                    <i data-lucide="file-spreadsheet"></i>
+                  </div>
+                  <h3>Thả bảng tính của bạn vào đây</h3>
+                  <p>Excel hoặc CSV · Dữ liệu được xử lý ngay trên trình duyệt</p>
+                  <button class="btn btn-white-pill" onclick="document.getElementById('fileInput').click()">
+                    <i data-lucide="folder-open"></i> Chọn bảng tính
+                  </button>
+                  <!-- Ambient Glow inside orange dropzone -->
+                  <div class="dropzone-glow-shape shape-glow-1"></div>
+                  <div class="dropzone-glow-shape shape-glow-2"></div>
+                </div>
+
+                <!-- Checklist & Demo Buttons -->
+                <div class="schema-check-box clean-sidebar-box">
+                  <h4><i data-lucide="shield-check"></i> Các cột dữ liệu cần có</h4>
+                  <div class="schema-keys-pills" id="requiredKeysPills">
+                    <!-- Injected via JS -->
+                  </div>
+                  <div class="test-guide-box">
+                    <span class="guide-title">Chưa có dữ liệu? Khám phá thử.</span>
+                    <div class="guide-buttons">
+                      <button class="btn btn-demo-white-success" id="btnDemoSuccess">
+                        <i data-lucide="file-check"></i> Thử dữ liệu mẫu
+                      </button>
+                      <button class="btn btn-demo-dark-danger" id="btnDemoError">
+                        <i data-lucide="alert-triangle"></i> Thử file không hợp lệ
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <section id="importPreviewPanel" class="import-preview-panel" hidden><div class="panel-head"><div><h3>Kiểm tra bảng tính trước khi nhập</h3><p id="importPreviewSummary"></p></div><label id="importSheetControl" hidden>Sheet <select id="importSheetSelect"></select></label></div><div id="importQuality" class="bulk-action-row" role="group" aria-label="Chất lượng dữ liệu"></div><p class="workflow-help" id="importQualityStatus" role="status"></p><div class="data-table-scroll"><table class="luxury-table" id="importPreviewTable"></table></div><p id="importPreviewStatus" class="workflow-help" role="status"></p><div class="bulk-action-row"><button type="button" class="btn btn-secondary" id="btnCancelImport">Hủy nhập</button><button type="button" class="btn btn-primary" id="btnConfirmImport">Xác nhận nhập &amp; làm sạch</button></div></section>
+            </div>
+          </div>
+
+          <!-- ---------------- BƯỚC 2: AI LỌC & CHUẨN HÓA ---------------- -->
+          <div class="pipeline-step-pane" id="paneStep2">
+            <div class="step-head-banner">
+              <div>
+                <span class="badge-tag tag-ai">BƯỚC 2 / 6: AI AGENT</span>
+                <h2>Làm sạch và chuẩn hóa dữ liệu</h2>
+                <p>Kiểm tra dòng trùng, xử lý dữ liệu thiếu và chuẩn hóa định dạng.</p>
+              </div>
+              <span class="step-status-pill" id="step2StatusBadge">Đang khởi tạo AI...</span>
+            </div>
+
+            <div class="cleaning-dashboard">
+              <!-- Tiến trình 4 giai đoạn AI lọc -->
+              <div class="ai-progress-card">
+                <div class="ai-progress-top">
+                  <span id="cleanProgressLabel">Đang phân tích cấu trúc bảng tính...</span>
+                  <strong id="cleanProgressPct">0%</strong>
+                </div>
+                <div class="ai-progress-track">
+                  <div class="ai-progress-fill" id="cleanProgressBar" style="width: 0%;"></div>
+                </div>
+                <div class="cleaning-stages-row">
+                  <div class="clean-stage-pill" id="cleanStage1"><i data-lucide="scan-search"></i> 1. Quét trùng lặp</div>
+                  <div class="clean-stage-pill" id="cleanStage2"><i data-lucide="calendar-check"></i> 2. Chuẩn hóa ngày &amp; tiền</div>
+                  <div class="clean-stage-pill" id="cleanStage3"><i data-lucide="sparkles"></i> 3. Xử lý dữ liệu thiếu</div>
+                  <div class="clean-stage-pill" id="cleanStage4"><i data-lucide="shield-check"></i> 4. Kiểm định đầu ra</div>
+                </div>
+              </div>
+
+              <div class="mini-kpi-row">
+                <div class="kpi-mini-box box-coral">
+                  <div class="kpi-mini-head">
+                    <span class="kpi-mini-icon"><i data-lucide="database"></i></span>
+                    <span>Bản Ghi Gốc</span>
+                  </div>
+                  <h3 id="statRawCount">0</h3>
+                </div>
+                <div class="kpi-mini-box box-amber">
+                  <div class="kpi-mini-head">
+                    <span class="kpi-mini-icon"><i data-lucide="filter-x"></i></span>
+                    <span>Dòng Trùng / Nhiễu Loại</span>
+                  </div>
+                  <h3 id="statRemovedCount">0</h3>
+                </div>
+                <div class="kpi-mini-box box-emerald">
+                  <div class="kpi-mini-head">
+                    <span class="kpi-mini-icon"><i data-lucide="check-check"></i></span>
+                    <span>Bản Ghi Sạch Thu Được</span>
+                  </div>
+                  <h3 id="statCleanedCount">0</h3>
+                </div>
+                <div class="kpi-mini-box box-indigo">
+                  <div class="kpi-mini-head">
+                    <span class="kpi-mini-icon"><i data-lucide="shield-check"></i></span>
+                    <span>Tỷ lệ đủ dữ liệu</span>
+                  </div>
+                  <h3 id="statQualityPct">0%</h3>
+                </div>
+              </div>
+
+              <!-- Tổng hợp thay đổi sau lọc -->
+              <div class="cleaning-breakdown-box" id="cleaningBreakdownBox"></div>
+
+
+              <!-- Terminal console -->
+              <div class="terminal-card">
+                <div class="terminal-top">
+                  <span class="terminal-icon" aria-hidden="true"><i data-lucide="list-checks"></i></span>
+                  <div class="terminal-heading">
+                    <h3 class="term-title">Nhật ký xử lý</h3>
+                    <p>Theo dõi các bước làm sạch dữ liệu</p>
+                  </div>
+                  <span class="term-status" id="termLiveBadge"><span class="pulse-live-dot"></span> Đang xử lý</span>
+                </div>
+                <div class="terminal-logs-body" id="cleaningLogsContainer" role="log" aria-live="polite" aria-label="Nhật ký làm sạch dữ liệu" tabindex="0"></div>
+              </div>
+
+              <div class="step-nav-footer">
+                <button type="button" class="btn btn-secondary" onclick="setStep(1)">
+                  <i data-lucide="arrow-left"></i> Về bước 1
+                </button>
+                <button type="button" class="btn btn-primary btn-lg" id="btnGoToStep3" aria-describedby="nextStep3Hint">
+                  <span>Tiếp tục: Duyệt dữ liệu</span>
+                  <i data-lucide="arrow-right"></i>
+                </button>
+<p class="workflow-help" id="nextStep3Hint"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------------- BƯỚC 3: NGƯỜI 1 XÁC THỰC & FEEDBACK LOOP ---------------- -->
+          <div class="pipeline-step-pane" id="paneStep3">
+            <div class="step-head-banner">
+              <div>
+                <span class="badge-tag tag-review">BƯỚC 3 / 6: NGƯỜI XÁC THỰC 1</span>
+                <h2>Kiểm tra dữ liệu đã làm sạch</h2>
+                <p>Đối soát từng dòng dữ liệu đã chuẩn hóa. Nếu chưa ưng ý, gửi feedback để AI lọc lại và cập nhật trực tiếp vào bảng.</p>
+              </div>
+            </div>
+
+              <details id="cleaningAuditPanel" class="cleaning-audit" hidden><summary><i data-lucide="git-compare-arrows"></i> So sánh dữ liệu trước / sau <span id="cleaningAuditSummary"></span></summary><div class="data-table-scroll"><table class="luxury-table"><thead><tr><th>Mã đơn</th><th>Cột</th><th>Trước</th><th>Sau</th><th>Lý do</th></tr></thead><tbody id="cleaningAuditRows"></tbody></table></div><p id="cleaningAuditLimit" class="workflow-help"></p><p id="cleaningAuditRemoved" class="workflow-help"></p></details>
+            <div class="table-card-wrapper">
+              <div class="table-top-controls">
+                <div class="table-controls-left">
+                  <div class="table-search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="tableFilterInput" placeholder="Tìm kiếm mã đơn, khách hàng, sản phẩm...">
+                  </div>
+                  <div class="status-filter-pills" id="step3StatusTabs"></div>
+                </div>
+                <span class="table-count-label">Hiển thị <strong id="tableRowCount" aria-live="polite">0</strong> bản ghi sạch</span>
+              </div>
+
+              <div class="review-bulk-toolbar">
+                <div class="review-category-filter" role="group" aria-label="Lọc theo nhiều điều kiện">
+                  <label for="reviewCategoryColumn">Lọc theo cột</label>
+                  <select id="reviewCategoryColumn"><option value="">Chọn cột</option></select>
+                  <label class="sr-only" for="reviewCategoryValue">Giá trị cần lọc</label>
+                  <select id="reviewCategoryValue" disabled><option value="">Chọn giá trị</option></select>
+                  <button type="button" class="btn btn-secondary" id="btnAddReviewFilter" disabled>Thêm điều kiện</button>
+                  <button type="button" class="text-action" id="btnResetReviewFilters" hidden>Xóa tất cả bộ lọc</button>
+                  <div id="reviewCategoryConditions" class="review-filter-conditions" aria-label="Điều kiện theo cột đang áp dụng" hidden></div>
+                  <span>Nhiều giá trị cùng cột: khớp một giá trị. Khác cột: khớp tất cả.</span>
+                </div>
+                <div class="selection-summary"><i data-lucide="list-checks"></i><strong id="reviewSelectionCount" role="status">0 dòng đã chọn</strong><span>Chọn bằng ô vuông hoặc theo bộ lọc phía trên</span></div>
+                <div class="bulk-action-row">
+                  <button type="button" class="btn btn-secondary" id="btnSelectFiltered">Chọn toàn bộ kết quả lọc</button>
+                  <button type="button" class="text-action" id="btnClearSelection" disabled>Bỏ chọn toàn bộ dữ liệu</button>
+                  <button type="button" class="btn btn-danger-soft" id="btnDeleteSelected" disabled>Xóa đã chọn</button>
+                  <button type="button" class="btn btn-danger-soft" id="btnDeleteFiltered">Xóa kết quả lọc</button>
+                  <button type="button" class="text-action danger-text" id="btnDeleteAllRows">Xóa toàn bộ bảng</button>
+                  <button type="button" class="btn btn-secondary" id="btnUndoBulkDelete" disabled>Hoàn tác</button><button type="button" class="btn btn-secondary" id="btnRedoReview" disabled>Làm lại</button><span id="reviewHistoryStatus" class="workflow-help"></span>
+                </div>
+              </div>
+              <div class="data-table-scroll">
+                <table class="luxury-table" id="reviewDataTable">
+                  <thead id="reviewTableThead"></thead>
+                  <tbody id="reviewTableTbody"></tbody>
+                </table>
+              </div>
+
+              <div class="table-pagination-bar">
+                <span class="page-meta" id="pageIndicatorStep3">Trang 1 / 1</span>
+                <div class="page-nav-btns">
+                  <button type="button" class="btn-page" id="btnPrevPageStep3"><i data-lucide="chevron-left"></i> Trước</button>
+                  <button type="button" class="btn-page" id="btnNextPageStep3">Sau <i data-lucide="chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inline status notification after feedback -->
+            <div class="inline-feedback-banner" id="step3FeedbackToast" style="display: none;"></div>
+
+            <!-- DUAL DECISION BOX (2 TRƯỜNG HỢP: FEEDBACK LỌC LẠI HOẶC OK) -->
+            <div class="step3-decision-grid">
+              <!-- Case 1: Feedback loop -->
+              <div class="decision-box box-amber-subtle">
+                <div class="decision-head-inline">
+                  <div class="d-icon"><i data-lucide="message-square-code"></i></div>
+                  <div class="d-text">
+                    <h4>Yêu cầu chỉnh sửa</h4>
+                    <p>Phản hồi sẽ đưa quy trình về Bước 2, lọc lại rồi cập nhật bảng làm việc để bạn kiểm duyệt lại.</p>
+                  </div>
+                </div>
+                <div class="feedback-chips-row">
+                  <button type="button" class="fb-chip step3-chip" data-fb3="Loại bỏ đơn Canceled">Bỏ đơn đã hủy</button>
+                  <button type="button" class="fb-chip step3-chip" data-fb3="Loại bỏ đơn doanh thu < 300">Bỏ doanh thu &lt; $300</button>
+                  <button type="button" class="fb-chip step3-chip" data-fb3="Chuẩn hóa tên khách hàng IN HOA">Viết hoa tên khách hàng</button>
+                </div>
+                <div class="feedback-input-row">
+                  <input type="text" id="feedbackInputStep3" placeholder="VD: Bỏ đơn đã hủy; Chỉ giữ đơn doanh thu >= 500">
+                  <button type="button" class="btn btn-amber" id="btnSendFeedbackStep3">
+                    <i data-lucide="refresh-cw"></i> Áp dụng chỉnh sửa
+                  </button>
+                </div>
+                <div class="decision-sub-actions">
+                  <button type="button" class="btn-link-subtle" id="btnResetStep3Data">
+                    <i data-lucide="rotate-ccw"></i> Khôi phục dữ liệu sau làm sạch
+                  </button>
+                </div>
+                <p class="workflow-help">Hỗ trợ lọc trạng thái, ngưỡng doanh thu, viết hoa tên và từ khóa như: Chỉ giữ &quot;Hà Nội&quot;. Tách nhiều yêu cầu bằng dấu ;. Xóa nội dung để hủy phản hồi chưa gửi.</p>
+                <div class="step3-fb-log" id="step3FeedbackHistory"></div>
+              </div>
+
+              <!-- Case 2: OK Approve -->
+              <div class="decision-box box-emerald-subtle">
+                <div class="decision-head-inline">
+                  <div class="d-icon icon-success"><i data-lucide="check-circle-2"></i></div>
+                  <div class="d-text">
+                    <h4>Xác nhận dữ liệu</h4>
+                    <p>Xác nhận toàn bộ bảng dữ liệu hiện tại để chuyển sang Bước 4 tính toán và phân tích.</p>
+                  </div>
+                </div>
+                <div class="approve-summary-mini" id="step3ApproveSummary">
+                  <span>Sẵn sàng phân tích trên toàn bộ bản ghi đã duyệt.</span>
+                </div>
+                <button type="button" class="btn btn-success btn-lg btn-full-width" id="btnApproveStep3" aria-describedby="approveDataHint">
+                  <i data-lucide="arrow-right-circle"></i> Duyệt &amp; bắt đầu phân tích
+                </button>
+                <p id="approveDataHint" class="workflow-help" hidden></p>
+              </div>
+            </div>
+
+            <div class="step-nav-footer">
+              <button type="button" class="btn btn-secondary" onclick="setStep(2)">
+                <i data-lucide="arrow-left"></i> Về bước 2
+              </button>
+            </div>
+          </div>
+
+          <!-- ---------------- BƯỚC 4 & 5: AI PHÂN TÍCH & OUTPUT ---------------- -->
+          <div class="pipeline-step-pane" id="paneStep4">
+            <div class="step-head-banner"><div>
+              <span class="badge-tag tag-ai">BƯỚC 4 / 6: PHÂN TÍCH</span>
+              <h2>Phân tích dữ liệu đã được phê duyệt</h2>
+              <p>Tính doanh thu, lợi nhuận ước tính, xu hướng và đề xuất kinh doanh từ bảng dữ liệu hiện tại.</p>
+            </div></div>
+            <div class="analysis-run-card">
+              <span class="analysis-run-icon"><i data-lucide="chart-no-axes-combined"></i></span>
+              <h3 id="analysisProgressLabel" role="status" aria-live="polite">Sẵn sàng phân tích</h3>
+              <p id="analysisRunFeedback"></p>
+              <p class="workflow-help">Lợi nhuận được ước tính từ biên lợi nhuận do bạn lựa chọn. Đề xuất là gợi ý dựa trên số liệu, cần được kiểm duyệt trước khi xuất.</p>
+              <button type="button" class="btn btn-secondary" id="btnRetryAnalysis" hidden>Thử phân tích lại</button>
+            </div>
+            <div class="step-nav-footer">
+              <button type="button" class="btn btn-secondary" onclick="setStep(3)"><i data-lucide="arrow-left"></i> Kiểm tra dữ liệu</button>
+              <button type="button" class="btn btn-primary" id="btnGoToStep5" aria-describedby="nextStep5Hint" disabled>Xem kết quả Bước 5 <i data-lucide="arrow-right"></i></button>
+<p class="workflow-help" id="nextStep5Hint"></p>
+            </div>
+          </div>
+          <div class="pipeline-step-pane" id="paneStep5">
+            <div class="step-head-banner">
+              <div>
+                <span class="badge-tag tag-ai">BƯỚC 5 / 6: KẾT QUẢ PHÂN TÍCH</span>
+                <h2>Kết quả phân tích</h2>
+                <p>Kết quả tính toán, biểu đồ và gợi ý kinh doanh từ dữ liệu đã duyệt. Chuyển sang Bước 6 để nghiệm thu hoặc yêu cầu chạy lại.</p>
+              </div>
+            </div>
+
+<div class="time-slicer" id="analyticsTimeSlicer" role="group" aria-label="Bộ lọc phân tích">
+  <span class="slicer-label"><i data-lucide="calendar-range"></i> Thời gian</span>
+  <label class="sr-only" for="analyticsTimePreset">Khoảng thời gian nhanh</label>
+  <select id="analyticsTimePreset"><option value="all">Toàn bộ thời gian</option><option value="last7">7 ngày cuối dữ liệu</option><option value="last30">30 ngày cuối dữ liệu</option><option value="lastmonth">Tháng cuối dữ liệu</option><option value="custom">Tùy chọn</option></select>
+  <label for="analyticsDateFrom">Từ <input type="date" id="analyticsDateFrom"></label>
+  <label for="analyticsDateTo">Đến <input type="date" id="analyticsDateTo"></label>
+  <button type="button" class="btn btn-secondary" id="analyticsApplyTime">Áp dụng</button>
+  <button type="button" class="text-action" id="analyticsResetTime">Đặt lại</button>
+  <span class="slicer-summary" id="analyticsTimeSummary" role="status" aria-live="polite">Đang hiển thị toàn bộ dữ liệu</span>
+  <div class="linked-filter-bar" role="group" aria-label="Bộ lọc liên kết biểu đồ">
+    <div id="linkedFilterChips"></div>
+    <button type="button" class="text-action" id="btnClearLinkedFilters" disabled>Xóa bộ lọc liên kết</button>
+  </div>
+</div>
+            <section class="analysis-tools" aria-label="Bộ lọc đã lưu và so sánh">
+              <div class="bulk-action-row">
+                <input id="analysisPresetName" type="text" maxlength="60" placeholder="Tên bộ lọc" aria-label="Tên bộ lọc">
+                <button type="button" class="btn btn-secondary" id="saveAnalysisPreset">Lưu bộ lọc hiện tại</button>
+                <select id="analysisPreset" aria-label="Bộ lọc đã lưu"></select>
+                <button type="button" class="text-action" id="deleteAnalysisPreset" disabled>Xóa bộ lọc đã lưu</button>
+              </div>
+              <p id="analysisPresetStatus" class="workflow-help" role="status"></p>
+              <label class="param-check-line"><input type="checkbox" id="comparePrevious"> So sánh với kỳ liền trước có cùng số ngày</label>
+              <div id="comparisonResult" hidden>
+                <p id="comparisonSummary" class="workflow-help" role="status"></p>
+                <div class="canvas-holder"><canvas id="comparisonChart" hidden role="img" aria-label="So sánh doanh thu theo ngày giữa hai kỳ"></canvas></div>
+              </div>
+            </section>
+            <!-- 4 KPI Cards (Phong cách V14) -->
+            <div class="kpi-four-grid">
+              <div class="stat-mini-card">
+                <div class="stat-icon-wrap icon-primary"><i data-lucide="wallet"></i></div>
+                <div class="stat-content">
+                  <span class="stat-label">Tổng Doanh Thu</span>
+                  <h3 class="stat-amount" id="kpiRevenueVal">$0</h3>
+                  <span class="badge-growth positive" id="kpiProfitMarginNote"><i data-lucide="trending-up"></i> Lợi nhuận dự kiến</span>
+                </div>
+              </div>
+
+              <div class="stat-mini-card">
+                <div class="stat-icon-wrap icon-orange"><i data-lucide="shopping-cart"></i></div>
+                <div class="stat-content">
+                  <span class="stat-label">Tổng Đơn Hàng Hợp Lệ</span>
+                  <h3 class="stat-amount" id="kpiOrdersVal">0</h3>
+                  <span class="badge-growth neutral" id="kpiCompletionRateNote"><i data-lucide="check"></i> Tỷ lệ hoàn tất</span>
+                </div>
+              </div>
+
+              <div class="stat-mini-card">
+                <div class="stat-icon-wrap icon-amber"><i data-lucide="award"></i></div>
+                <div class="stat-content">
+                  <span class="stat-label">Giá Trị Đơn Trung Bình (AOV)</span>
+                  <h3 class="stat-amount" id="kpiAovVal">$0</h3>
+                  <span class="badge-growth positive" id="kpiPeakOrderNote"><i data-lucide="trending-up"></i> Đơn lớn nhất</span>
+                </div>
+              </div>
+
+              <div class="stat-mini-card">
+                <div class="stat-icon-wrap icon-violet"><i data-lucide="users"></i></div>
+                <div class="stat-content">
+                  <span class="stat-label">Khách Hàng Độc Bản</span>
+                  <h3 class="stat-amount" id="kpiCustomersVal">0</h3>
+                  <span class="badge-growth positive" id="kpiRepeatRateNote"><i data-lucide="heart"></i> Tỷ lệ mua lại</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts Section (Dual-curve Line Chart & Donut) -->
+            <div class="analytics-charts-grid">
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <div>
+                    <h3>Doanh thu &amp; lợi nhuận theo thời gian</h3>
+                    <p>Đường cong kép V14 — dữ liệu tính trực tiếp từ bảng tính của bạn</p>
+                  </div>
+                  <div class="period-pills" id="analyticsPeriodTabs">
+                    <button type="button" class="pill-btn active" data-period="day">Ngày</button>
+                    <button type="button" class="pill-btn" data-period="week">Tuần</button>
+                    <button type="button" class="pill-btn" data-period="month">Tháng</button>
+                  </div>
+                </div>
+                <div class="canvas-holder">
+                  <canvas id="financeChart"></canvas>
+                </div>
+              </div>
+
+              <div class="chart-panel panel-donut">
+                <div class="panel-head">
+                  <div>
+                    <h3>Trạng thái đơn hàng</h3>
+                    <p>Tỷ lệ % trong các nhóm đang hiển thị · rê chuột để xem số đơn</p>
+                  </div>
+                </div>
+                <div class="canvas-holder donut-holder">
+                  <canvas id="statusDonutChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-interaction-note" id="chartFocusNote" role="status"><i data-lucide="mouse-pointer-2"></i> Rê chuột để xem chi tiết · Bấm dữ liệu để ghim thông tin · Bấm chú giải để ẩn/hiện chuỗi</div>
+            <div class="exploration-charts-grid">
+              <article class="chart-panel"><div class="panel-head"><div><span class="chart-eyebrow">PRODUCT MIX</span><h3>Doanh thu theo sản phẩm</h3><p>8 nhóm dẫn đầu trong kỳ đang chọn</p></div><span class="chart-type-badge">Thanh ngang</span></div><div class="canvas-holder"><canvas id="productRevenueChart" aria-label="Doanh thu 8 sản phẩm dẫn đầu" role="img"></canvas></div></article>
+              <article class="chart-panel"><div class="panel-head"><div><span class="chart-eyebrow">ORDER VALUE</span><h3>Phân bố giá trị đơn hàng</h3><p>Nhìn rõ các khoảng doanh thu phổ biến</p></div><span class="chart-type-badge">Phân phối</span></div><div class="canvas-holder"><canvas id="orderDistributionChart" aria-label="Phân bố giá trị đơn hàng" role="img"></canvas></div></article>
+              <article class="chart-panel"><div class="panel-head"><div><span class="chart-eyebrow">REGIONAL PERFORMANCE</span><h3>Đóng góp theo khu vực</h3><p id="regionChartCoverage">Doanh thu và số đơn ở mỗi khu vực</p></div><span class="chart-type-badge">Cột</span></div><div class="canvas-holder"><canvas id="regionRevenueChart" aria-label="Doanh thu theo khu vực" role="img"></canvas><p id="regionChartEmpty" class="chart-empty" hidden>Bảng chưa có cột khu vực để phân tích.</p></div></article>
+              <article class="chart-panel"><div class="panel-head"><div><span class="chart-eyebrow">CUSTOMER LANDSCAPE</span><h3>Bản đồ giá trị khách hàng</h3><p id="customerChartCoverage">Trục ngang: số đơn · Trục dọc: doanh thu · Kích thước: giá trị trung bình</p></div><span class="chart-type-badge">Bong bóng</span></div><div class="canvas-holder"><canvas id="customerValueChart" aria-label="Số đơn và doanh thu theo khách hàng" role="img"></canvas></div></article>
+            </div>
+            <details id="linkedRowsPanel" class="cleaning-audit"><summary id="linkedRowsSummary">Xem các đơn hàng trong báo cáo</summary><div class="data-table-scroll"><table class="luxury-table" id="linkedRowsTable"></table></div><div class="table-pagination-bar"><span id="linkedRowsPage"></span><div class="page-nav-btns"><button type="button" class="btn-page" id="btnLinkedPrev">Trước</button><button type="button" class="btn-page" id="btnLinkedNext">Sau</button></div></div></details>
+            <!-- Phân tích Top Sản phẩm & Khách hàng VIP / Khu vực -->
+            <div class="insights-two-grid">
+              <div class="insight-list-card">
+                <div class="insight-card-head">
+                  <h4><i data-lucide="package-check"></i> Sản phẩm &amp; dịch vụ nổi bật</h4>
+                  <span class="insight-tag">Theo Doanh Thu</span>
+                </div>
+                <div class="ranking-bars-list" id="topProductsList"></div>
+              </div>
+
+              <div class="insight-list-card">
+                <div class="insight-card-head">
+                  <h4><i data-lucide="crown"></i> Khách hàng nổi bật</h4>
+                  <span class="insight-tag">Hiệu Suất Cao</span>
+                </div>
+                <div class="ranking-bars-list" id="topCustomersList"></div>
+              </div>
+            </div>
+
+            <!-- AI Strategic Business Proposals -->
+            <div class="ai-proposals-box">
+              <div class="proposal-title-row">
+                <div class="star-icon"><i data-lucide="lightbulb"></i></div>
+                <div>
+                  <h3>Đề xuất từ dữ liệu</h3>
+                  <p>Đề xuất tùy biến dựa trên số liệu thực tế vừa khai phá</p>
+                </div>
+              </div>
+              <div class="proposals-cards-grid" id="proposalsList"></div>
+            </div>
+
+            <div class="step-nav-footer">
+              <button type="button" class="btn btn-secondary" onclick="setStep(3)">
+                <i data-lucide="arrow-left"></i> Về bước 3
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" id="btnGoToStep6" aria-describedby="nextStep6Hint">
+                <span>Tiếp tục: Nghiệm thu &amp; xuất báo cáo</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+<p class="workflow-help" id="nextStep6Hint"></p>
+            </div>
+          </div>
+
+          <!-- ---------------- BƯỚC 6: PHÊ DUYỆT CUỐI & XUẤT BẢN ---------------- -->
+          <div class="pipeline-step-pane" id="paneStep6">
+            <div class="step-head-banner">
+              <div>
+                <span class="badge-tag tag-review">BƯỚC 6 / 6: NGHIỆM THU CUỐI</span>
+                <h2>Nghiệm thu &amp; xuất báo cáo</h2>
+                <p>Tinh chỉnh tham số phân tích nếu cần, hoặc phê duyệt xuất báo cáo đa định dạng.</p>
+              </div>
+            </div>
+
+            <div class="final-options-grid">
+              <!-- Case 1: Adjust model parameters -->
+              <div class="final-card card-feedback-box">
+                <div class="f-icon icon-amber"><i data-lucide="sliders"></i></div>
+                <h3>Điều chỉnh phân tích</h3>
+                <p>Thử một kịch bản trên dữ liệu đã duyệt. Xem tác động bên dưới rồi chạy lại để cập nhật báo cáo.</p>
+
+                <div class="model-params-box">
+                  <div class="param-row">
+                    <div class="param-label-line">
+                      <label for="paramProfitMargin">Biên lợi nhuận ước tính (%)</label>
+                      <strong id="paramProfitMarginVal">32%</strong>
+                    </div>
+                    <input type="range" id="paramProfitMargin" min="0" max="100" value="32" class="param-slider">
+                  </div>
+
+                  <div class="param-row">
+                    <label for="paramFocusStrategy">Trọng tâm đề xuất chiến lược</label>
+                    <select id="paramFocusStrategy" class="param-select">
+                      <option value="balanced">Cân bằng toàn diện (Doanh thu &amp; Vận hành)</option>
+                      <option value="retention">Tập trung nhóm Khách hàng VIP &amp; Giữ chân</option>
+                      <option value="revenue">Tăng doanh thu & sản phẩm chủ lực</option>
+                      <option value="efficiency">Giảm thiểu rủi ro &amp; Tỷ lệ hủy đơn</option>
+                    </select>
+                  </div>
+
+                  <label class="param-check-line">
+                    <input type="checkbox" id="paramExcludeCanceled">
+                    <span>Loại trừ các đơn hàng <strong>Canceled</strong> khỏi doanh thu và số đơn phân tích</span>
+                  </label>
+                </div>
+
+                <div class="analysis-scenario-preview" aria-labelledby="analysisScenarioHeading">
+                  <h4 id="analysisScenarioHeading">Xem trước theo bộ lọc hiện tại</h4>
+                  <dl>
+                    <div><dt>Doanh thu tính vào báo cáo</dt><dd id="scenarioRevenue">—</dd></div>
+                    <div><dt>Lợi nhuận ước tính</dt><dd id="scenarioProfit">—</dd></div>
+                    <div><dt>Số đơn được tính</dt><dd id="scenarioOrders">—</dd></div>
+                  </dl>
+                  <p id="scenarioComparison" role="status"></p>
+                  <p id="scenarioFocus"></p>
+                </div>
+                <div class="feedback-form-wrap">
+                  <label for="feedbackInputStep6">Yêu cầu điều chỉnh (tùy chọn)</label>
+                  <textarea id="feedbackInputStep6" rows="3" placeholder="VD: Biên lợi nhuận 40%; Loại đơn hủy; Tập trung VIP" class="feedback-textarea"></textarea>
+                  <button type="button" class="btn btn-amber btn-full-width" id="btnSendFeedbackStep6">
+                    <i data-lucide="refresh-cw"></i> Áp dụng và chạy lại phân tích
+                  </button>
+                </div>
+                <p class="workflow-help">Hỗ trợ biên lợi nhuận, tính/loại đơn hủy và trọng tâm VIP, doanh thu, vận hành. Yêu cầu chưa hỗ trợ sẽ được thông báo để bạn điều chỉnh.</p>
+                <div class="inline-feedback-banner" id="step6FeedbackToast" style="display: none;"></div>
+              </div>
+
+              <!-- Case 2: Approve and Export -->
+              <div class="final-card card-export-box">
+                <div class="f-icon icon-emerald"><i data-lucide="file-check"></i></div>
+                <h3>Xác nhận &amp; xuất kết quả</h3>
+                <p>Nghiệm thu toàn bộ kết quả phân tích và tải về báo cáo định dạng chuyên nghiệp.</p>
+                
+                <label class="reviewer-name">Tên người nghiệm thu <input id="reviewerName" type="text" placeholder="Nhập tên để ghi trong lịch sử nội bộ"></label>
+                <div class="final-approval-block">
+                  <p id="finalApprovalStatus" role="status">Chờ người kiểm duyệt cuối cùng xác nhận. Các nút xuất đang khóa.</p>
+                  <button type="button" class="btn btn-success btn-full-width" id="btnApproveStep6" disabled><i data-lucide="check-circle-2"></i> Duyệt kết quả &amp; cho phép xuất</button>
+                </div>
+                <div class="export-buttons-list">
+                  <button type="button" class="export-btn" id="btnExportHtmlReport" disabled>
+                    <div class="exp-icon bg-indigo"><i data-lucide="file-code-2"></i></div>
+                    <div class="exp-text">
+                      <strong>Báo cáo HTML</strong>
+                      <span>Mở trực tiếp trên mọi trình duyệt với giao diện báo cáo hoàn chỉnh</span>
+                    </div>
+                    <i data-lucide="download" class="arrow"></i>
+                  </button>
+
+                  <button type="button" class="export-btn" id="btnExportCleanedXlsx" disabled>
+                    <div class="exp-icon bg-emerald"><i data-lucide="file-spreadsheet"></i></div>
+                    <div class="exp-text">
+                      <strong>Dữ liệu Excel (.xlsx)</strong>
+                      <span>Dữ liệu sạch trong kỳ đã chọn, gồm mọi trạng thái đơn hàng</span>
+                    </div>
+                    <i data-lucide="download" class="arrow"></i>
+                  </button>
+
+                  <button type="button" class="export-btn" id="btnExportCleanedData" disabled>
+                    <div class="exp-icon bg-emerald"><i data-lucide="file-text"></i></div>
+                    <div class="exp-text">
+                      <strong>Dữ liệu CSV (.csv)</strong>
+                      <span>Dữ liệu sạch trong kỳ đã chọn, UTF-8 cho hệ thống BI / SQL</span>
+                    </div>
+                    <i data-lucide="download" class="arrow"></i>
+                  </button>
+
+                  <button type="button" class="export-btn" id="btnPrintPdfReport" disabled>
+                    <div class="exp-icon bg-amber"><i data-lucide="printer"></i></div>
+                    <div class="exp-text">
+                      <strong>In / lưu báo cáo PDF</strong>
+                      <span>Định dạng in ấn trang trọng sẵn sàng gửi ban lãnh đạo</span>
+                    </div>
+                    <i data-lucide="external-link" class="arrow"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <section class="report-history-panel" aria-label="Lịch sử nghiệm thu">
+              <div class="panel-head"><div><span class="chart-eyebrow">APPROVAL HISTORY</span><h3>Lịch sử báo cáo &amp; người nghiệm thu</h3><p>Tìm, lọc theo người và quản lý các phiên bản đã lưu trên thiết bị này.</p></div><div class="bulk-action-row"><button type="button" class="btn btn-secondary" id="btnRefreshReportVersions">Làm mới danh sách</button><button type="button" class="btn btn-primary" id="btnSaveReportVersion" disabled>Lưu phiên bản hiện tại</button></div></div>
+              <div class="report-history-stats"><div><span>Phiên bản đã lưu</span><strong id="reportTotalCount">0</strong></div><div><span>Người nghiệm thu</span><strong id="reportReviewerCount">0</strong></div><div><span>Lần nghiệm thu gần nhất</span><strong id="reportLastDate">Chưa có</strong></div></div>
+              <details class="report-reviewer-summary"><summary>Tổng hợp người đã nghiệm thu <span id="reportReviewerSummaryCount">0 người</span></summary><div id="reportReviewerSummary"></div></details>
+              <div class="report-history-filters"><label><span>Tìm báo cáo</span><input type="search" id="reportHistorySearch" placeholder="Tên file hoặc người nghiệm thu…"></label><label><span>Người nghiệm thu</span><select id="reportReviewerFilter"><option value="">Tất cả người nghiệm thu</option></select></label></div>
+              <div class="report-selection-toolbar"><div><strong id="reportSelectionCount">0 phiên bản đã chọn</strong><button type="button" class="text-action" id="btnSelectAllReports">Chọn tất cả kết quả</button></div><div class="report-delete-actions"><button type="button" id="btnDeleteSelectedReports" data-delete-action disabled>Xóa đã chọn</button><button type="button" id="btnDeleteReviewerReports" data-delete-action disabled>Xóa theo người</button><button type="button" id="btnDeleteAllReports" data-delete-action disabled>Xóa tất cả lịch sử</button></div></div>
+              <p id="reportHistoryStatus" class="workflow-help" role="status"></p>
+              <label class="report-select-page"><input type="checkbox" id="selectReportPage"> Chọn các phiên bản trên trang này</label>
+              <div id="reportVersionList"></div>
+              <div class="report-history-pagination"><span id="reportPageSummary">Chưa có phiên bản</span><div><button type="button" class="btn btn-secondary" id="btnReportPagePrev" disabled>Trước</button><button type="button" class="btn btn-secondary" id="btnReportPageNext" disabled>Sau</button></div></div>
+              
+            </section>
+            <!-- Success Celebration -->
+            <div class="celebration-box" id="celebrationBanner">
+              <i data-lucide="check-circle-2"></i>
+              <div class="celeb-text-wrap">
+                <strong>Quy Trình Phân Tích Nghiệm Thu Thành Công!</strong>
+                <span id="celebrationDetailText">Kết quả hiện tại đã được kiểm duyệt và xuất báo cáo.</span>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm-pill" onclick="resetAll()">Phân tích file mới</button>
+            </div>
+
+            <div class="step-nav-footer">
+              <button type="button" class="btn btn-secondary" onclick="setStep(5)">
+                <i data-lucide="arrow-left"></i> Xem lại kết quả Bước 5
+              </button>
+              <button type="button" class="btn btn-primary" id="btnStartNewAnalysis"><i data-lucide="rotate-ccw"></i> Làm mới &amp; về Bước 1</button>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="overview-section is-locked" id="overviewSection" aria-label="Tổng quan dữ liệu">
+          <div class="overview-section-heading"><div><p class="eyebrow">TỔNG QUAN DỮ LIỆU</p><h2>Tổng quan dữ liệu</h2><p>Số liệu và biểu đồ từ bảng tính bạn đã nhập.</p></div></div>
+          <div id="overviewLockBanner" class="overview-lock-banner" role="status"><span class="overview-banner-icon"><i data-lucide="lock-keyhole"></i></span><div><strong id="overviewLockTitle">Dashboard chưa được mở khóa</strong><p id="overviewLockDescription">Tải file Excel hoặc CSV hợp lệ ở Bước 1 để xem số liệu và biểu đồ.</p></div><button class="btn btn-primary" data-view="upload">Chọn bảng tính <i data-lucide="arrow-up"></i></button></div>
+          <div class="overview-source-line"><span><span class="live-dot"></span> Tổng quan kinh doanh <span class="source-separator">/</span> <span id="overviewSource">Chưa nhập bảng tính</span></span><button class="text-action" id="useSampleData">Dùng bộ dữ liệu mẫu <i data-lucide="arrow-up-right"></i></button></div>
+<fieldset class="time-slicer" id="overviewTimeSlicer" disabled aria-label="Bộ lọc thời gian tổng quan">
+  <span class="slicer-label"><i data-lucide="calendar-range"></i> Thời gian</span>
+  <label class="sr-only" for="overviewTimePreset">Khoảng thời gian nhanh</label>
+  <select id="overviewTimePreset"><option value="all">Toàn bộ thời gian</option><option value="last7">7 ngày cuối dữ liệu</option><option value="last30">30 ngày cuối dữ liệu</option><option value="lastmonth">Tháng cuối dữ liệu</option><option value="custom">Tùy chọn</option></select>
+  <label for="overviewDateFrom">Từ <input type="date" id="overviewDateFrom"></label>
+  <label for="overviewDateTo">Đến <input type="date" id="overviewDateTo"></label>
+  <button type="button" class="btn btn-secondary" id="overviewApplyTime">Áp dụng</button>
+  <button type="button" class="text-action" id="overviewResetTime">Đặt lại</button>
+  <span class="slicer-summary" id="overviewTimeSummary" role="status" aria-live="polite">Tải file để sử dụng bộ lọc thời gian</span>
+</fieldset>
+          <div class="bento-grid">
+            <article data-overview-card class="bento-card dashboard-card-locked workspace-card">
+              <div class="bento-heading"><div><h2>Không gian dữ liệu</h2><p>Tất cả bắt đầu từ dữ liệu tốt</p></div><button class="square-action" data-view="workflow" aria-label="Mở quy trình"><i data-lucide="arrow-up-right"></i></button></div>
+              <div class="dataset-pass">
+                <div class="pass-top"><span><i data-lucide="layers-2"></i> DATA WORKSPACE</span><i data-lucide="scan-line"></i></div>
+                <p>Bản ghi trong bảng tính</p><div class="pass-count"><strong id="overviewRecordCount">—</strong><span>bản ghi</span></div>
+                <div class="pass-bottom"><span><span class="pass-status-dot"></span><span id="overviewDatasetType">CHƯA KẾT NỐI</span></span><span>EXCEL / CSV</span></div>
+              </div>
+              <div class="workspace-bottom"><div><span>Khách hàng duy nhất</span><strong id="overviewCustomers">—</strong></div><span class="soft-badge"><i data-lucide="users-round"></i> Customer insights</span></div>
+              <div class="overview-card-lock"><span class="overview-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="overview-lock-shackle" d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M12 14v3"/></svg></span><strong>Chưa có dữ liệu</strong><span>Nhập bảng tính để mở khóa</span></div>
+            </article>
+
+            <article data-overview-card class="bento-card dashboard-card-locked revenue-card">
+              <div class="bento-heading"><div class="heading-with-icon"><span class="muted-icon"><i data-lucide="chart-no-axes-column-increasing"></i></span><div><h2>Nhịp tăng trưởng</h2><p>Doanh thu theo thời gian</p></div></div><div class="segmented" id="overviewPeriod"><button data-period="day">Ngày</button><button class="active" data-period="week">Tuần</button></div></div>
+              <div class="revenue-summary"><strong id="overviewChartTotal">—</strong><span>USD <span class="chart-legend-dot"></span> Doanh thu</span></div>
+              <div class="overview-chart" id="overviewBarChart" role="img" tabindex="0" aria-describedby="overviewChartTooltip" aria-label="Biểu đồ doanh thu"></div>
+              <div class="chart-caption"><span class="live-dot"></span> <span id="overviewChartCaption">Chưa có dữ liệu để phân tích</span></div>
+              <div class="overview-card-lock"><span class="overview-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="overview-lock-shackle" d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M12 14v3"/></svg></span><strong>Chưa có dữ liệu</strong><span>Nhập bảng tính để mở khóa</span></div>
+            </article>
+
+            <article data-overview-card class="bento-card dashboard-card-locked balance-card">
+              <div class="bento-heading"><div><h2>Tổng doanh thu</h2><p>Bức tranh tài chính của bạn</p></div><button class="square-action" data-view="reports" aria-label="Xem phân tích doanh thu"><i data-lucide="arrow-up-right"></i></button></div>
+              <div class="balance-amount"><span>Doanh thu ghi nhận</span><strong id="overviewRevenue">—</strong><small>USD · gồm tất cả trạng thái đơn</small></div>
+              <div class="sparkline-holder" id="overviewSparkline" role="img" tabindex="0" aria-describedby="overviewChartTooltip" aria-label="Doanh thu theo ngày"></div>
+              <div class="balance-actions"><button class="btn btn-primary" data-view="upload">Tải dữ liệu <i data-lucide="arrow-up"></i></button><button class="btn btn-secondary" data-view="reports">Phân tích <i data-lucide="arrow-up-right"></i></button></div>
+              <div class="overview-card-lock"><span class="overview-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="overview-lock-shackle" d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M12 14v3"/></svg></span><strong>Chưa có dữ liệu</strong><span>Nhập bảng tính để mở khóa</span></div>
+            </article>
+
+            <article data-overview-card class="bento-card dashboard-card-locked recent-card">
+              <div class="bento-heading"><div><h2>Đơn hàng gần đây</h2><p>Những chuyển động mới nhất trong dữ liệu</p></div><button class="square-action" id="recentExpand" aria-label="Xem thêm đơn hàng"><i data-lucide="arrow-up-right"></i></button></div>
+              <div class="overview-search" id="overviewSearchWrap" hidden><i data-lucide="search"></i><input id="globalSearch" type="search" placeholder="Tìm đơn hàng, khách hàng, sản phẩm..." aria-label="Tìm đơn hàng"><button class="text-action" id="closeOverviewSearch" aria-label="Đóng tìm kiếm"><i data-lucide="x"></i></button></div>
+              <div class="recent-table-scroll"><table class="recent-table"><thead><tr><th>Sản phẩm / Khách hàng</th><th>Ngày giao</th><th>Trạng thái</th><th>Doanh thu</th></tr></thead><tbody id="overviewRecentRows"><tr><td colspan="4" class="empty-recent">Nhập bảng tính để xem các đơn hàng.</td></tr></tbody></table></div>
+              <div class="recent-footer"><span id="recentCount">Chưa có dữ liệu</span><button class="text-action" id="recentShowAll">Xem thêm <i data-lucide="arrow-right"></i></button></div>
+              <div class="overview-card-lock"><span class="overview-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="overview-lock-shackle" d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M12 14v3"/></svg></span><strong>Chưa có dữ liệu</strong><span>Nhập bảng tính để mở khóa</span></div>
+            </article>
+
+            <article data-overview-card class="bento-card dashboard-card-locked quality-card">
+              <div class="bento-heading"><div class="heading-with-icon"><span class="muted-icon"><i data-lucide="badge-check"></i></span><div><h2>Hiệu suất đơn hàng</h2><p>Hoàn tất &amp; đang giao</p></div></div></div>
+              <div class="quality-value"><strong id="overviewCompletion">—</strong><span class="soft-badge">Tỷ lệ xử lý</span></div>
+              <div class="quality-track"><span id="overviewCompletionBar"></span></div>
+              <div class="status-summary" id="overviewStatusSummary"></div>
+              <div class="human-review"><div class="review-avatars"><span>AI</span><span>01</span><span>02</span></div><div><strong>AI hỗ trợ. Bạn quyết định.</strong><span>2 lớp kiểm duyệt trước khi xuất bản</span></div><i data-lucide="shield-check"></i></div>
+              <div class="overview-card-lock"><span class="overview-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="overview-lock-shackle" d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M12 14v3"/></svg></span><strong>Chưa có dữ liệu</strong><span>Nhập bảng tính để mở khóa</span></div>
+            </article>
+          </div>
+          <div class="overview-footnote"><span><i data-lucide="shield-check"></i> Dữ liệu được xử lý trên trình duyệt của bạn</span><span>CodeKit <span class="version-label">V14</span><span class="footnote-dot">·</span> Rõ ràng trong từng bước</span></div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= CHỮ "ERROR" ĐỎ TO ĐÙNG MODAL + THÔNG BÁO SỬA LỖI ================= -->
+  <div class="error-giant-overlay" id="errorGiantModal" role="alertdialog" aria-modal="true" aria-labelledby="importErrorTitle">
+    <div class="error-modal-card">
+      <!-- NÚT X Ở TRÊN CÙNG ĐỂ TẮT THÔNG BÁO -->
+      <button class="error-close-x-btn" id="btnDismissErrorX" title="Đóng thông báo (Esc)">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="error-pulse-icon">
+        <i data-lucide="alert-triangle"></i>
+      </div>
+      <!-- CHỮ cảnh báo dữ liệu -->
+      <h1 class="error-giant-text" id="importErrorTitle">ERROR</h1>
+      <p class="error-giant-sub">FILE KHÔNG ĐẠT YÊU CẦU ĐỐI SOÁT KHÓA CHÍNH</p>
+
+      <div class="error-details-box">
+        <h4>Chi tiết vi phạm phát hiện:</h4>
+        <ul id="errorListItems"></ul>
+      </div>
+
+      <div class="error-lock-notice" id="errorLockNotice">
+        <i data-lucide="lock"></i>
+        <span id="errorLockNoticeText">ĐÃ KHÓA BƯỚC TIẾP THEO — BẮT BUỘC TẢI LẠI FILE ĐẠT YÊU CẦU</span>
+      </div>
+
+      <section class="file-repair-panel" aria-labelledby="fileRepairHeading">
+        <div class="file-repair-heading"><span><i data-lucide="git-pull-request-arrow"></i></span><div><h2 id="fileRepairHeading">Thông báo &amp; sửa lỗi file</h2><p>Chọn cách xử lý để hoàn thiện bảng dữ liệu trước khi phân tích.</p></div></div>
+        <div class="file-repair-options">
+          <article class="file-repair-option"><div class="repair-option-title"><i data-lucide="user-round-pen"></i><h3>Người dùng tự sửa</h3></div><p>Bổ sung dữ liệu còn thiếu trong file gốc, rồi tải lại để kiểm tra.</p><button type="button" class="btn btn-primary" id="btnCloseErrorModal"><i data-lucide="upload"></i> Tôi tự sửa &amp; tải lại file</button></article>
+          <article class="file-repair-option"><div class="repair-option-title"><i data-lucide="bot"></i><h3>Agent tự sửa</h3></div><p>Nhận diện và sửa tên cột từ dữ liệu hiện có; xem lại trước khi sử dụng.</p><button type="button" class="btn btn-primary" id="btnAutoRepairFile"><i data-lucide="wand-sparkles"></i> Tự động sửa</button><button type="button" class="btn btn-secondary" id="btnShowRepairDetails" aria-controls="fileRepairDetails" aria-expanded="false"><i data-lucide="list-checks"></i> Chi tiết chỉnh sửa</button></article>
+        </div>
+        <div class="file-repair-feedback"><label for="fileRepairFeedback">Yêu cầu chỉnh sửa</label><textarea id="fileRepairFeedback" rows="2" placeholder="VD: Mã đơn hàng = OrderCode; Ngày giao hàng = Delivery"></textarea><div><span>Ghi theo mẫu: Cột bắt buộc = Cột trong file. Tách nhiều yêu cầu bằng dấu ;.</span><button type="button" class="btn btn-secondary" id="btnApplyRepairFeedback"><i data-lucide="send"></i> Gửi yêu cầu &amp; sửa lại</button></div></div>
+        <p id="fileRepairStatus" class="repair-status" role="status" aria-live="polite">Chưa có chỉnh sửa. File chưa đạt yêu cầu sẽ tiếp tục bị khóa.</p>
+        <details id="fileRepairDetails" class="file-repair-details">
+          <summary>
+            <i class="repair-details-icon" data-lucide="columns-3" aria-hidden="true"></i>
+            <span>Ánh xạ cột &amp; chi tiết chỉnh sửa</span>
+            <i class="repair-details-chevron" data-lucide="chevron-down" aria-hidden="true"></i>
+          </summary>
+          <div class="repair-details-content">
+            <section class="repair-details-section" aria-labelledby="repairMappingHeading">
+              <h3 id="repairMappingHeading">Ghép cột trong file</h3>
+              <p>Chọn cột nguồn cho từng trường còn thiếu. Nếu file thiếu dữ liệu, hãy bổ sung trong file gốc rồi tải lại.</p>
+              <div id="fileRepairMapping"></div>
+              <button type="button" class="btn btn-secondary" id="btnCheckRepairMapping" disabled><i data-lucide="list-checks"></i> Kiểm tra ánh xạ</button>
+            </section>
+            <section class="repair-details-section" aria-labelledby="repairAuditHeading">
+              <h3 id="repairAuditHeading">Thay đổi đã áp dụng</h3>
+              <div class="repair-audit-scroll">
+                <table aria-labelledby="repairAuditHeading">
+                  <thead><tr><th scope="col">Cột gốc</th><th scope="col">Chỉnh sửa</th><th scope="col">Số dòng</th></tr></thead>
+                  <tbody id="fileRepairChanges"><tr><td colspan="3">Chưa có chỉnh sửa.</td></tr></tbody>
+                </table>
+              </div>
+            </section>
+            <section id="repairRemainingSection" class="repair-remaining" aria-labelledby="repairRemainingHeading" hidden>
+              <h3 id="repairRemainingHeading"><i data-lucide="circle-alert" aria-hidden="true"></i> Cần xử lý</h3>
+              <ul id="fileRepairRemaining"></ul>
+            </section>
+            <p id="repairConfirmHint" class="repair-confirm-hint" role="status"></p>
+            <div class="repair-result-actions">
+              <button type="button" class="btn btn-secondary" id="btnDownloadRepairedFile" disabled><i data-lucide="download"></i> Tải bản đang sửa</button>
+              <button type="button" class="btn btn-primary" id="btnConfirmRepairedFile" aria-describedby="repairConfirmHint" disabled><i data-lucide="shield-check"></i> Kiểm tra &amp; dùng bản đã sửa</button>
+            </div>
+          </div>
+        </details>
+      </section>
+    </div>
+  </div>
+
+  <div id="cellEditorDialog" class="bulk-delete-overlay" role="dialog" aria-modal="true" aria-labelledby="cellEditorTitle" hidden><div class="bulk-delete-card"><h2 id="cellEditorTitle">Sửa dữ liệu</h2><p id="cellEditorDescription"></p><input id="cellEditorInput" class="cell-editor-input" type="text" aria-labelledby="cellEditorTitle"><p id="cellEditorError" class="cell-editor-error" role="alert"></p><div class="bulk-delete-footer"><button type="button" class="btn btn-secondary" id="btnCellCancel">Hủy</button><button type="button" class="btn btn-primary" id="btnCellSave">Lưu thay đổi</button></div></div></div>
+  <div id="bulkDeleteDialog" class="bulk-delete-overlay" role="alertdialog" aria-modal="true" aria-labelledby="bulkDeleteTitle" aria-describedby="bulkDeleteSummary" hidden>
+    <div class="bulk-delete-card"><span class="delete-dialog-icon"><i data-lucide="trash-2"></i></span><h2 id="bulkDeleteTitle">Xác nhận xóa dữ liệu</h2><p id="bulkDeleteSummary"></p><p class="workflow-help">Dữ liệu đã xóa sẽ không được phân tích. Bạn có thể hoàn tác ngay sau lần xóa này.</p><div class="bulk-delete-footer"><button type="button" class="btn btn-secondary" id="btnCancelBulkDelete">Giữ lại dữ liệu</button><button type="button" class="btn btn-danger-solid" id="btnConfirmBulkDelete">Xác nhận xóa</button></div></div>
+  </div>
+  <!-- ================= MODAL CẤU HÌNH KHÓA CHÍNH ================= -->
+  <div class="config-modal-backdrop" id="schemaModal">
+    <div class="config-modal-box">
+      <div class="c-modal-head">
+        <h3><i data-lucide="sliders-horizontal"></i> Cấu hình cột bắt buộc</h3>
+        <button class="btn-close-modal" id="btnCloseSchema"><i data-lucide="x"></i></button>
+      </div>
+      <div class="c-modal-body">
+        <p>Hệ thống sẽ dựa vào danh sách này để quét Header file Excel/CSV. Nếu thiếu bất kỳ khóa nào, hệ thống sẽ đề nghị bạn bổ sung:</p>
+        <div class="schema-tags-list" id="schemaTagsWrapper"></div>
+        <div class="add-field-row">
+          <input type="text" id="newSchemaInput" placeholder="Thêm tên cột bắt buộc...">
+          <button class="btn btn-primary" id="btnAddNewSchema">Thêm</button>
+        </div>
+      </div>
+      <div class="c-modal-foot">
+        <button class="btn btn-secondary" id="btnRestoreDefaultSchema">Khôi phục mặc định</button>
+        <button class="btn btn-primary" id="btnSaveSchemaSettings">Lưu cấu hình</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-activity-overlay" id="aiActivityOverlay" role="dialog" aria-modal="true" aria-labelledby="aiActivityTitle" aria-describedby="aiActivityDescription" tabindex="-1" hidden>
+    <div class="ai-activity-card">
+      <span class="ai-activity-eyebrow">CODEKIT · AI AGENT</span>
+      <div class="ai-step-loader" aria-hidden="true"></div>
+      <div role="status" aria-live="polite">
+        <h2 id="aiActivityTitle">AI đang xử lý dữ liệu</h2>
+        <p id="aiActivityDescription">Vui lòng chờ trong giây lát…</p>
+      </div>
+      <span class="ai-activity-caption"><span></span> Đang xử lý · Vui lòng chờ</span>
+    </div>
+  </div>
+
+  <script src="data-core.js?v=19.7-workflow"></script>
+  <script src="motion.js?v=20.2"></script>
+  <script src="delete-motion.js?v=19.7"></script>
+  <script src="report.js?v=19.7"></script>
+  <script src="explorations.js?v=19.7"></script>
+  <script src="script.js?v=19.9-workflow"></script>
+  <script src="file-repair.js?v=19.8"></script>
+  <div id="overviewChartTooltip" class="overview-hover-tooltip" role="tooltip" hidden><span id="overviewHoverLabel"></span><strong id="overviewHoverValue"></strong><small id="overviewHoverMeta"></small></div>
+  <div class="app-toast" id="appToast" role="status" hidden></div>
+  <script src="workbench.js?v=21.1-workflow"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>Workbench.init());</script>
+  <script src="overview-motion.js?v=19.7"></script>
+  <script src="dashboard.js?v=21.1"></script>
+  <script src="workflow-improvements.js?v=1"></script>
+  <script src="welcome.js?v=21.7"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+﻿Mã khách hàng,Tên khách hàng,Mã đơn hàng,Ngày giao hàng,Sản phẩm / Dịch vụ,Doanh thu,Trạng thái,Khu vực,Phương thức thanh toán
+KH-1026,Đặng Hoàng Huy,ORD-2026-0052,19/10/2026,API Enterprise License,850,Completed,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1023,Võ Hoàng Vy,ORD-2026-0128,23/10/2026,Gói Cloud SaaS Pro,476,Completed,Bình Dương,Cổng Stripe Quốc Tế
+KH-1047,Hoàng Minh Quân,ORD-2026-0079,20/10/2026,API Enterprise License,1419,Completed,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1034,Trần Minh Huy,ORD-2026-0032,27/10/2026,API Enterprise License,1068,Shipped,Hải Phòng,Ví MoMo Business
+KH-1059,Hoàng Gia Phương,ORD-2026-0229,04/11/2026,Data Warehouse Connector,381,Completed,Hà Nội,Ví MoMo Business
+KH-1017,Phạm Bảo Phương,ORD-2026-0018,19/10/2026,Security Audit Package,2173,Completed,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1015,Nguyễn Quốc Tùng,ORD-2026-0237,05/11/2026,Dedicated Support SLA,405,Canceled,Hà Nội,Cổng Stripe Quốc Tế
+KH-1055,Võ Gia Quân,ORD-2026-0002,16/10/2026,Security Audit Package,1261,Completed,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1055,Trần Hoàng Linh,ORD-2026-0004,25/10/2026,API Enterprise License,1369,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1058,Đặng Minh Trang,ORD-2026-0129,08/11/2026,Dedicated Support SLA,485,Completed,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1041,Phạm Quốc Linh,ORD-2026-0010,27/10/2026,Gói Cloud SaaS Pro,587,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1011,Lê Minh Linh,ORD-2026-0085,20/10/2026,Data Warehouse Connector,372,Completed,Cần Thơ,Chuyển khoản Vietcombank
+KH-1025,Hoàng Hoàng Hùng,ORD-2026-0180,24/10/2026,Gói Cloud SaaS Pro,632,Completed,Bình Dương,Ví MoMo Business
+KH-1015,Hoàng Gia Linh,ORD-2026-0067,08/11/2026,Security Audit Package,1535,Shipped,Hà Nội,Chuyển khoản Vietcombank
+KH-1035,Võ Thảo Linh,ORD-2026-0098,28/10/2026,Security Audit Package,2188,Canceled,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1036,Đặng Minh Quân,ORD-2026-0124,21/10/2026,Dedicated Support SLA,,Canceled,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1011,Đặng Anh Hùng,ORD-2026-0288,18/10/2026,Data Warehouse Connector,377,Processing,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1061,Huỳnh Thảo Khang,ORD-2026-0066,05/11/2026,API Enterprise License,1034,Shipped,Hải Phòng,Ví MoMo Business
+KH-1021,Hoàng Ngọc Khang,ORD-2026-0233,27/10/2026,AI Analytics Addon,365,Shipped,Bình Dương,Chuyển khoản Vietcombank
+KH-1056,Phan Thảo Trang,ORD-2026-0070,26/10/2026,Gói Cloud SaaS Pro,775,Canceled,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1040,Trần Thanh Phương,ORD-2026-0019,27/10/2026,Data Warehouse Connector,441,Canceled,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1024,Trần Thanh Long,ORD-2026-0078,21/10/2026,Data Warehouse Connector,360,Canceled,Đà Nẵng,Ví MoMo Business
+KH-1064,Trần Ngọc Tùng,ORD-2026-0228,19/10/2026,Data Warehouse Connector,508,Canceled,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1058,Huỳnh Hoàng Tùng,ORD-2026-0241,11/11/2026,Dedicated Support SLA,493,Pending,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1043,Lê Quốc Huy,ORD-2026-0177,19/10/2026,Security Audit Package,1290,Processing,Cần Thơ,Ví MoMo Business
+KH-1039,Phạm Anh Huy,ORD-2026-0111,04/11/2026,Security Audit Package,2068,Shipped,Hải Phòng,Ví MoMo Business
+KH-1023,Phan Thanh Long,ORD-2026-0041,28/10/2026,API Enterprise License,850,Completed,Bình Dương,Ví MoMo Business
+KH-1006,Đặng Thảo Phương,ORD-2026-0065,08/11/2026,Data Warehouse Connector,265,Shipped,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1044,Võ Thảo Trang,ORD-2026-0293,04/11/2026,Gói Cloud SaaS Pro,505,Completed,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1048,Trần Tuấn Linh,ORD-2026-0193,29/10/2026,Security Audit Package,2329,Completed,Cần Thơ,Chuyển khoản Vietcombank
+KH-1054,Phan Gia Phương,ORD-2026-0258,24/10/2026,Security Audit Package,1512,Shipped,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1041,Nguyễn Tuấn Huy,ORD-2026-0170,18/10/2026,Gói Cloud SaaS Pro,879,Processing,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1028,Vũ Anh Linh,ORD-2026-0133,28/10/2026,Data Warehouse Connector,481,Shipped,Hải Phòng,Ví MoMo Business
+KH-1058,Lê Quốc Vy,ORD-2026-0152,05/11/2026,Security Audit Package,2356,Processing,Bình Dương,Ví MoMo Business
+KH-1032,Phan Bảo Hùng,ORD-2026-0076,24/10/2026,Data Warehouse Connector,547,Processing,Hải Phòng,Ví MoMo Business
+KH-1015,Huỳnh Bảo Linh,ORD-2026-0121,18/10/2026,Dedicated Support SLA,420,Completed,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1043,Võ Ngọc Quân,ORD-2026-0270,27/10/2026,Dedicated Support SLA,686,Completed,Bình Dương,Chuyển khoản Vietcombank
+KH-1004,Lê Quốc Tùng,ORD-2026-0062,27/10/2026,Security Audit Package,2412,Completed,Hà Nội,Cổng Stripe Quốc Tế
+KH-1054,Phan Quốc Quân,ORD-2026-0175,20/10/2026,Security Audit Package,1375,Processing,Hà Nội,Chuyển khoản Vietcombank
+KH-1060,Lê Thanh Khang,ORD-2026-0166,08/11/2026,Dedicated Support SLA,444,Pending,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1063,Lê Quốc Vy,ORD-2026-0190,21/10/2026,Data Warehouse Connector,312,Completed,Hà Nội,Cổng Stripe Quốc Tế
+KH-1007,Vũ Gia Huy,ORD-2026-0142,05/11/2026,Security Audit Package,1367,Shipped,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1017,Trần Bảo Huy,ORD-2026-0103,31/10/2026,Gói Cloud SaaS Pro,944,Processing,Hà Nội,Cổng Stripe Quốc Tế
+KH-1042,Phan Tuấn Long,ORD-2026-0247,22/10/2026,Security Audit Package,1818,Completed,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1035,Võ Thanh Phương,ORD-2026-0223,19/10/2026,AI Analytics Addon,217,Shipped,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1056,Lê Thảo Vy,ORD-2026-0108,19/10/2026,AI Analytics Addon,252,Pending,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1005,Phan Gia Trang,ORD-2026-0045,18/10/2026,AI Analytics Addon,342,Pending,Đà Nẵng,Ví MoMo Business
+KH-1054,Phan Bảo Quân,ORD-2026-0049,05/11/2026,API Enterprise License,1576,Completed,Cần Thơ,Ví MoMo Business
+KH-1005,Huỳnh Anh Tùng,ORD-2026-0115,02/11/2026,Dedicated Support SLA,486,Completed,Hà Nội,Ví MoMo Business
+KH-1014,Vũ Thanh Tùng,ORD-2026-0203,25/10/2026,AI Analytics Addon,251,Canceled,Hà Nội,Ví MoMo Business
+KH-1052,Huỳnh Tuấn Hùng,ORD-2026-0093,10/11/2026,Data Warehouse Connector,531,Completed,Hải Phòng,Chuyển khoản Vietcombank
+KH-1016,Võ Ngọc Tùng,ORD-2026-0210,19/10/2026,Data Warehouse Connector,299,Pending,Đà Nẵng,Ví MoMo Business
+KH-1059,Hoàng Bảo Khang,ORD-2026-0015,15/10/2026,API Enterprise License,1339,Completed,Cần Thơ,Chuyển khoản Vietcombank
+KH-1026,Võ Quốc Long,ORD-2026-0179,16/10/2026,Gói Cloud SaaS Pro,611,Shipped,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1018,Trần Minh Long,ORD-2026-0171,08/11/2026,Data Warehouse Connector,490,Canceled,Cần Thơ,Chuyển khoản Vietcombank
+KH-1046,Võ Hoàng Linh,ORD-2026-0005,11/11/2026,Gói Cloud SaaS Pro,626,Shipped,Hà Nội,Cổng Stripe Quốc Tế
+KH-1024,Nguyễn Tuấn Phương,ORD-2026-0178,09/11/2026,Data Warehouse Connector,319,Completed,Bình Dương,Cổng Stripe Quốc Tế
+KH-1023,Nguyễn Ngọc Linh,ORD-2026-0248,04/11/2026,Gói Cloud SaaS Pro,797,Pending,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1028,Phạm Gia Hùng,ORD-2026-0246,08/11/2026,Security Audit Package,1315,Completed,Cần Thơ,Ví MoMo Business
+KH-1052,Trần Thảo Tùng,ORD-2026-0230,10/11/2026,API Enterprise License,1675,Processing,Hà Nội,Cổng Stripe Quốc Tế
+KH-1012,Đặng Ngọc Quân,ORD-2026-0206,27/10/2026,Gói Cloud SaaS Pro,708,Canceled,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1043,Huỳnh Anh Khang,ORD-2026-0281,10/11/2026,Dedicated Support SLA,617,Pending,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1009,Lê Anh Hùng,ORD-2026-0240,30/10/2026,Gói Cloud SaaS Pro,466,Shipped,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1038,Đặng Tuấn Huy,ORD-2026-0080,06/11/2026,Security Audit Package,1458,Canceled,Hà Nội,Chuyển khoản Vietcombank
+KH-1063,Phan Ngọc Vy,ORD-2026-0283,02/11/2026,Data Warehouse Connector,374,Processing,Hải Phòng,Ví MoMo Business
+KH-1032,Đặng Thảo Phương,ORD-2026-0040,05/11/2026,Data Warehouse Connector,302,Processing,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1043,Nguyễn Tuấn Khang,ORD-2026-0136,05/11/2026,Gói Cloud SaaS Pro,512,Pending,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1057,Trần Quốc Hùng,ORD-2026-0091,23/10/2026,Dedicated Support SLA,392,Pending,Bình Dương,Cổng Stripe Quốc Tế
+KH-1061,Hoàng Minh Vy,ORD-2026-0225,30/10/2026,Dedicated Support SLA,633,Shipped,Đà Nẵng,Ví MoMo Business
+KH-1006,Vũ Thanh Hùng,ORD-2026-0253,11/11/2026,Data Warehouse Connector,287,Shipped,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1036,Lê Tuấn Quân,ORD-2026-0221,24/10/2026,Security Audit Package,1449,Pending,Hải Phòng,Ví MoMo Business
+KH-1022,Phạm Quốc Khang,ORD-2026-0164,07/11/2026,Data Warehouse Connector,474,Completed,Hải Phòng,Ví MoMo Business
+KH-1026,Đặng Ngọc Vy,ORD-2026-0047,26/10/2026,Data Warehouse Connector,470,Completed,Bình Dương,Ví MoMo Business
+KH-1052,Huỳnh Quốc Trang,ORD-2026-0211,31/10/2026,API Enterprise License,882,Completed,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1020,Trần Gia Tùng,ORD-2026-0187,05/11/2026,Gói Cloud SaaS Pro,680,Processing,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1055,Phạm Thanh Long,ORD-2026-0084,24/10/2026,Security Audit Package,2364,Completed,Cần Thơ,Chuyển khoản Vietcombank
+KH-1019,Nguyễn Ngọc Phương,ORD-2026-0039,28/10/2026,AI Analytics Addon,222,Completed,Đà Nẵng,Ví MoMo Business
+KH-1018,Võ Minh Vy,ORD-2026-0260,07/11/2026,API Enterprise License,1800,Completed,Cần Thơ,Chuyển khoản Vietcombank
+KH-1002,Vũ Thanh Linh,ORD-2026-0026,17/10/2026,Data Warehouse Connector,371,Completed,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1029,Phan Bảo Huy,ORD-2026-0234,19/10/2026,API Enterprise License,1779,Completed,Hải Phòng,Ví MoMo Business
+KH-1063,Đặng Anh Vy,ORD-2026-0272,22/10/2026,Dedicated Support SLA,482,Pending,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1026,Hoàng Thảo Vy,ORD-2026-0087,28/10/2026,AI Analytics Addon,219,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1039,Huỳnh Quốc Hùng,ORD-2026-0220,08/11/2026,API Enterprise License,1391,Shipped,Bình Dương,Cổng Stripe Quốc Tế
+KH-1009,Hoàng Quốc Phương,ORD-2026-0021,16/10/2026,API Enterprise License,1476,Completed,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1003,Trần Anh Vy,ORD-2026-0148,25/10/2026,Dedicated Support SLA,387,Canceled,Bình Dương,Ví MoMo Business
+KH-1058,Phan Quốc Phương,ORD-2026-0245,03/11/2026,Gói Cloud SaaS Pro,794,Completed,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1013,Huỳnh Thảo Huy,ORD-2026-0134,25/10/2026,Data Warehouse Connector,468,Processing,Bình Dương,Ví MoMo Business
+KH-1011,Nguyễn Tuấn Linh,ORD-2026-0252,29/10/2026,Data Warehouse Connector,439,Completed,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1055,Võ Tuấn Trang,ORD-2026-0013,03/11/2026,Data Warehouse Connector,,Pending,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1038,Trần Minh Phương,ORD-2026-0006,10/11/2026,Gói Cloud SaaS Pro,771,Processing,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1011,Vũ Ngọc Tùng,ORD-2026-0007,11/11/2026,AI Analytics Addon,249,Completed,Hải Phòng,Ví MoMo Business
+KH-1022,Vũ Tuấn Linh,ORD-2026-0088,09/11/2026,Gói Cloud SaaS Pro,607,Shipped,Hải Phòng,Chuyển khoản Vietcombank
+KH-1001,Huỳnh Hoàng Trang,ORD-2026-0239,07/11/2026,AI Analytics Addon,245,Completed,Hà Nội,Cổng Stripe Quốc Tế
+KH-1016,Huỳnh Thanh Hùng,ORD-2026-0196,31/10/2026,Gói Cloud SaaS Pro,528,Shipped,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1043,Phạm Thanh Khang,ORD-2026-0267,02/11/2026,Dedicated Support SLA,739,Completed,Cần Thơ,Chuyển khoản Vietcombank
+KH-1040,Trần Quốc Vy,ORD-2026-0017,22/10/2026,AI Analytics Addon,204,Shipped,Cần Thơ,Chuyển khoản Vietcombank
+KH-1015,Đặng Quốc Long,ORD-2026-0214,28/10/2026,AI Analytics Addon,339,Shipped,Bình Dương,Chuyển khoản Vietcombank
+KH-1060,Trần Hoàng Khang,ORD-2026-0154,29/10/2026,AI Analytics Addon,199,Completed,Đà Nẵng,Ví MoMo Business
+KH-1054,Trần Ngọc Phương,ORD-2026-0169,16/10/2026,Gói Cloud SaaS Pro,652,Processing,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1041,Phan Thảo Trang,ORD-2026-0249,06/11/2026,Security Audit Package,2052,Pending,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1049,Lê Tuấn Phương,ORD-2026-0243,10/11/2026,Dedicated Support SLA,417,Shipped,Hải Phòng,Ví MoMo Business
+KH-1010,Lê Thanh Vy,ORD-2026-0150,31/10/2026,API Enterprise License,1033,Shipped,Đà Nẵng,Ví MoMo Business
+KH-1041,Vũ Tuấn Huy,ORD-2026-0205,21/10/2026,Security Audit Package,1526,Canceled,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1056,Huỳnh Thanh Hùng,ORD-2026-0149,02/11/2026,API Enterprise License,1620,Completed,Hải Phòng,Ví MoMo Business
+KH-1041,Lê Quốc Huy,ORD-2026-0055,08/11/2026,Dedicated Support SLA,526,Pending,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1063,Đặng Bảo Quân,ORD-2026-0028,19/10/2026,Data Warehouse Connector,347,Shipped,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1022,Trần Thanh Long,ORD-2026-0051,05/11/2026,Dedicated Support SLA,343,Shipped,Cần Thơ,Ví MoMo Business
+KH-1020,Hoàng Hoàng Quân,ORD-2026-0172,01/11/2026,API Enterprise License,1666,Completed,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1006,Phan Thảo Huy,ORD-2026-0102,25/10/2026,Dedicated Support SLA,681,Canceled,Bình Dương,Cổng Stripe Quốc Tế
+KH-1055,Huỳnh Gia Linh,ORD-2026-0184,20/10/2026,Data Warehouse Connector,477,Processing,Hải Phòng,Chuyển khoản Vietcombank
+KH-1060,Nguyễn Minh Long,ORD-2026-0120,06/11/2026,Data Warehouse Connector,404,Pending,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1050,Nguyễn Bảo Trang,ORD-2026-0046,02/11/2026,Gói Cloud SaaS Pro,547,Shipped,Hà Nội,Cổng Stripe Quốc Tế
+KH-1005,Lê Thảo Tùng,ORD-2026-0163,05/11/2026,Data Warehouse Connector,422,Completed,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1041,Nguyễn Tuấn Trang,ORD-2026-0257,28/10/2026,AI Analytics Addon,201,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1010,Đặng Tuấn Vy,ORD-2026-0082,02/11/2026,Dedicated Support SLA,622,Completed,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1039,Phan Ngọc Long,ORD-2026-0282,25/10/2026,API Enterprise License,1211,Canceled,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1048,Đặng Thanh Vy,ORD-2026-0119,18/10/2026,Data Warehouse Connector,369,Canceled,Hà Nội,Ví MoMo Business
+KH-1047,Trần Thảo Tùng,ORD-2026-0012,22/10/2026,Dedicated Support SLA,370,Canceled,Hà Nội,Chuyển khoản Vietcombank
+KH-1037,Trần Anh Tùng,ORD-2026-0207,30/10/2026,Gói Cloud SaaS Pro,755,Canceled,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1050,Phạm Gia Long,ORD-2026-0189,01/11/2026,Security Audit Package,1441,Shipped,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1039,Võ Quốc Hùng,ORD-2026-0100,10/11/2026,AI Analytics Addon,340,Canceled,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1031,Hoàng Minh Linh,ORD-2026-0112,27/10/2026,Gói Cloud SaaS Pro,742,Processing,Cần Thơ,Ví MoMo Business
+KH-1015,Trần Bảo Vy,ORD-2026-0001,15/10/2026,Data Warehouse Connector,390,Shipped,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1065,Huỳnh Gia Huy,ORD-2026-0155,27/10/2026,Security Audit Package,2147,Completed,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1014,Vũ Ngọc Long,ORD-2026-0042,27/10/2026,API Enterprise License,879,Canceled,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1034,Huỳnh Anh Long,ORD-2026-0063,27/10/2026,Gói Cloud SaaS Pro,617,Shipped,Hải Phòng,Ví MoMo Business
+KH-1020,Hoàng Minh Hùng,ORD-2026-0122,28/10/2026,Security Audit Package,1402,Canceled,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1060,Võ Ngọc Vy,ORD-2026-0117,17/10/2026,Gói Cloud SaaS Pro,522,Shipped,Bình Dương,Cổng Stripe Quốc Tế
+KH-1047,Hoàng Bảo Tùng,ORD-2026-0095,03/11/2026,Security Audit Package,2220,Canceled,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1050,Hoàng Quốc Hùng,ORD-2026-0274,25/10/2026,Data Warehouse Connector,434,Completed,Hà Nội,Chuyển khoản Vietcombank
+KH-1019,Hoàng Ngọc Khang,ORD-2026-0104,28/10/2026,Gói Cloud SaaS Pro,895,Completed,Hà Nội,Cổng Stripe Quốc Tế
+KH-1044,Võ Quốc Tùng,ORD-2026-0024,09/11/2026,Data Warehouse Connector,305,Shipped,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1044,Nguyễn Hoàng Quân,ORD-2026-0020,15/10/2026,Gói Cloud SaaS Pro,751,Shipped,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1042,Hoàng Quốc Khang,ORD-2026-0183,18/10/2026,AI Analytics Addon,210,Processing,Bình Dương,Ví MoMo Business
+KH-1053,Lê Quốc Long,ORD-2026-0097,17/10/2026,Gói Cloud SaaS Pro,565,Completed,Hải Phòng,Chuyển khoản Vietcombank
+KH-1042,Vũ Tuấn Hùng,ORD-2026-0231,22/10/2026,Dedicated Support SLA,303,Shipped,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1051,Huỳnh Thảo Trang,ORD-2026-0160,19/10/2026,AI Analytics Addon,342,Completed,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1012,Huỳnh Thảo Long,ORD-2026-0037,04/11/2026,Gói Cloud SaaS Pro,666,Shipped,Hà Nội,Chuyển khoản Vietcombank
+KH-1038,Huỳnh Tuấn Huy,ORD-2026-0227,16/10/2026,API Enterprise License,818,Shipped,Cần Thơ,Chuyển khoản Vietcombank
+KH-1019,Võ Quốc Hùng,ORD-2026-0291,26/10/2026,Gói Cloud SaaS Pro,609,Processing,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1054,Hoàng Minh Linh,ORD-2026-0238,29/10/2026,Security Audit Package,2354,Completed,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1054,Đặng Bảo Quân,ORD-2026-0173,04/11/2026,API Enterprise License,1736,Completed,Hà Nội,Cổng Stripe Quốc Tế
+KH-1057,Lê Bảo Quân,ORD-2026-0038,01/11/2026,API Enterprise License,1675,Completed,Hà Nội,Chuyển khoản Vietcombank
+KH-1057,Huỳnh Anh Khang,ORD-2026-0186,16/10/2026,Data Warehouse Connector,314,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1048,Đặng Bảo Quân,ORD-2026-0034,24/10/2026,API Enterprise License,1123,Canceled,Cần Thơ,Ví MoMo Business
+KH-1002,Hoàng Thanh Khang,ORD-2026-0113,02/11/2026,AI Analytics Addon,411,Completed,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1007,Trần Thảo Quân,ORD-2026-0261,08/11/2026,Data Warehouse Connector,253,Pending,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1058,Phạm Ngọc Khang,ORD-2026-0165,22/10/2026,AI Analytics Addon,326,Shipped,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1058,Huỳnh Hoàng Tùng,ORD-2026-0241,11/11/2026,Dedicated Support SLA,493,Pending,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1051,Hoàng Quốc Trang,ORD-2026-0242,31/10/2026,Security Audit Package,1460,Shipped,Hà Nội,Chuyển khoản Vietcombank
+KH-1024,Võ Hoàng Quân,ORD-2026-0025,23/10/2026,Dedicated Support SLA,536,,Hà Nội,Cổng Stripe Quốc Tế
+KH-1042,Trần Hoàng Trang,ORD-2026-0132,27/10/2026,Security Audit Package,2423,Shipped,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1020,Lê Anh Khang,ORD-2026-0212,03/11/2026,Dedicated Support SLA,563,Completed,Đà Nẵng,Ví MoMo Business
+KH-1044,Huỳnh Anh Tùng,ORD-2026-0202,03/11/2026,API Enterprise License,1094,Processing,Bình Dương,Ví MoMo Business
+KH-1020,Võ Thảo Quân,ORD-2026-0156,16/10/2026,Security Audit Package,2122,Completed,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1046,Hoàng Bảo Long,ORD-2026-0219,05/11/2026,Security Audit Package,1741,Canceled,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1016,Vũ Quốc Long,ORD-2026-0083,01/11/2026,API Enterprise License,1652,Shipped,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1039,Vũ Minh Hùng,ORD-2026-0213,02/11/2026,Data Warehouse Connector,422,Canceled,Bình Dương,Ví MoMo Business
+KH-1014,Huỳnh Tuấn Linh,ORD-2026-0264,18/10/2026,API Enterprise License,1104,Shipped,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1002,Đặng Bảo Tùng,ORD-2026-0277,24/10/2026,Dedicated Support SLA,511,Pending,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1012,Huỳnh Minh Huy,ORD-2026-0072,23/10/2026,API Enterprise License,1723,Shipped,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1046,Phạm Hoàng Hùng,ORD-2026-0137,18/10/2026,AI Analytics Addon,337,Shipped,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1031,Đặng Ngọc Phương,ORD-2026-0174,06/11/2026,Data Warehouse Connector,323,Shipped,Hải Phòng,Chuyển khoản Vietcombank
+KH-1017,Nguyễn Anh Quân,ORD-2026-0146,27/10/2026,API Enterprise License,1271,Processing,Hà Nội,Cổng Stripe Quốc Tế
+KH-1020,Vũ Minh Vy,ORD-2026-0016,26/10/2026,API Enterprise License,1130,Completed,Cần Thơ,Ví MoMo Business
+KH-1013,Hoàng Minh Vy,ORD-2026-0292,29/10/2026,Dedicated Support SLA,669,Canceled,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1050,Nguyễn Bảo Trang,ORD-2026-0046,02/11/2026,Gói Cloud SaaS Pro,547,Shipped,Hà Nội,Cổng Stripe Quốc Tế
+KH-1002,Phạm Gia Phương,ORD-2026-0254,21/10/2026,AI Analytics Addon,238,Completed,Bình Dương,Cổng Stripe Quốc Tế
+KH-1007,Trần Bảo Linh,ORD-2026-0158,09/11/2026,Data Warehouse Connector,573,Processing,Hà Nội,Ví MoMo Business
+KH-1030,Nguyễn Anh Huy,ORD-2026-0226,01/11/2026,Data Warehouse Connector,269,Completed,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1033,Trần Quốc Hùng,ORD-2026-0110,05/11/2026,Dedicated Support SLA,304,Canceled,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1025,Trần Bảo Trang,ORD-2026-0162,22/10/2026,Dedicated Support SLA,370,Completed,Hà Nội,Ví MoMo Business
+KH-1020,Đặng Quốc Khang,ORD-2026-0286,06/11/2026,AI Analytics Addon,298,Pending,Hà Nội,Cổng Stripe Quốc Tế
+KH-1064,Lê Tuấn Quân,ORD-2026-0280,03/11/2026,Data Warehouse Connector,565,Shipped,Hải Phòng,Chuyển khoản Vietcombank
+KH-1033,Lê Quốc Huy,ORD-2026-0151,21/10/2026,API Enterprise License,1155,Completed,Bình Dương,Chuyển khoản Vietcombank
+KH-1055,Trần Quốc Tùng,ORD-2026-0054,22/10/2026,Gói Cloud SaaS Pro,540,Canceled,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1038,Lê Anh Tùng,ORD-2026-0273,09/11/2026,Security Audit Package,1704,Completed,Hà Nội,Ví MoMo Business
+KH-1006,Hoàng Thanh Hùng,ORD-2026-0031,03/11/2026,Security Audit Package,1367,Pending,Bình Dương,Ví MoMo Business
+KH-1035,Lê Ngọc Quân,ORD-2026-0268,16/10/2026,Dedicated Support SLA,338,Shipped,Cần Thơ,Chuyển khoản Vietcombank
+KH-1056,Trần Minh Linh,ORD-2026-0023,26/10/2026,Gói Cloud SaaS Pro,666,Pending,Hải Phòng,Chuyển khoản Vietcombank
+KH-1004,Đặng Minh Tùng,ORD-2026-0090,17/10/2026,AI Analytics Addon,248,Completed,Bình Dương,Ví MoMo Business
+KH-1026,Đặng Hoàng Khang,ORD-2026-0068,17/10/2026,Dedicated Support SLA,603,Shipped,Hà Nội,Ví MoMo Business
+KH-1044,Vũ Thảo Hùng,ORD-2026-0259,23/10/2026,Dedicated Support SLA,690,Canceled,Bình Dương,Cổng Stripe Quốc Tế
+KH-1042,Vũ Bảo Hùng,ORD-2026-0218,05/11/2026,Security Audit Package,2179,Pending,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1059,Phạm Ngọc Vy,ORD-2026-0077,23/10/2026,AI Analytics Addon,268,Shipped,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1033,Huỳnh Thanh Vy,ORD-2026-0064,10/11/2026,Dedicated Support SLA,341,Canceled,Hà Nội,Chuyển khoản Vietcombank
+KH-1015,Lê Ngọc Trang,ORD-2026-0236,16/10/2026,Security Audit Package,2321,Shipped,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1022,Hoàng Anh Trang,ORD-2026-0027,27/10/2026,Gói Cloud SaaS Pro,451,Pending,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1049,Phạm Quốc Long,ORD-2026-0109,03/11/2026,Security Audit Package,1693,Canceled,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1032,Phạm Tuấn Huy,ORD-2026-0056,10/11/2026,AI Analytics Addon,353,Shipped,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1047,Nguyễn Gia Trang,ORD-2026-0208,08/11/2026,AI Analytics Addon,293,Processing,Hà Nội,Cổng Stripe Quốc Tế
+KH-1002,Hoàng Thanh Khang,ORD-2026-0113,02/11/2026,AI Analytics Addon,411,Completed,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1008,Nguyễn Thảo Khang,ORD-2026-0185,17/10/2026,AI Analytics Addon,361,Pending,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1059,Đặng Anh Khang,ORD-2026-0011,19/10/2026,Data Warehouse Connector,385,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1062,Lê Ngọc Vy,ORD-2026-0194,31/10/2026,Data Warehouse Connector,460,Pending,Cần Thơ,Chuyển khoản Vietcombank
+KH-1035,Lê Thảo Khang,ORD-2026-0139,06/11/2026,API Enterprise License,1432,Processing,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1019,Đặng Thanh Khang,ORD-2026-0269,08/11/2026,API Enterprise License,1615,Completed,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1052,Phan Anh Huy,ORD-2026-0140,17/10/2026,Data Warehouse Connector,322,Completed,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1048,Hoàng Hoàng Quân,ORD-2026-0265,27/10/2026,Gói Cloud SaaS Pro,685,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1004,Phan Minh Phương,ORD-2026-0295,07/11/2026,Dedicated Support SLA,614,Shipped,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1009,Đặng Thanh Khang,ORD-2026-0030,03/11/2026,API Enterprise License,939,Shipped,Hải Phòng,Chuyển khoản Vietcombank
+KH-1010,Phan Tuấn Vy,ORD-2026-0147,11/11/2026,Dedicated Support SLA,460,Pending,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1041,Nguyễn Bảo Vy,ORD-2026-0029,16/10/2026,Data Warehouse Connector,275,Canceled,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1057,Trần Thảo Long,ORD-2026-0131,17/10/2026,Data Warehouse Connector,291,Processing,Cần Thơ,Thẻ Tín Dụng Mastercard
+KH-1021,Nguyễn Thảo Tùng,ORD-2026-0141,26/10/2026,AI Analytics Addon,269,Processing,Cần Thơ,Chuyển khoản Vietcombank
+KH-1056,Huỳnh Tuấn Phương,ORD-2026-0279,23/10/2026,API Enterprise License,1662,Shipped,Hải Phòng,Chuyển khoản Vietcombank
+KH-1052,Lê Hoàng Huy,ORD-2026-0266,27/10/2026,Gói Cloud SaaS Pro,643,Canceled,Hà Nội,Chuyển khoản Vietcombank
+KH-1012,Đặng Minh Quân,ORD-2026-0198,31/10/2026,Security Audit Package,1545,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1041,Hoàng Thảo Tùng,ORD-2026-0191,05/11/2026,Data Warehouse Connector,427,Completed,Cần Thơ,Ví MoMo Business
+KH-1013,Nguyễn Bảo Tùng,ORD-2026-0224,28/10/2026,Gói Cloud SaaS Pro,619,Canceled,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1002,Hoàng Gia Linh,ORD-2026-0118,23/10/2026,Dedicated Support SLA,574,Completed,Hải Phòng,Ví MoMo Business
+KH-1004,Vũ Thanh Linh,ORD-2026-0200,30/10/2026,Data Warehouse Connector,571,Shipped,Bình Dương,Ví MoMo Business
+KH-1014,Đặng Gia Hùng,ORD-2026-0276,15/10/2026,Dedicated Support SLA,345,Processing,Cần Thơ,Chuyển khoản Vietcombank
+KH-1031,Võ Ngọc Long,ORD-2026-0255,01/11/2026,Dedicated Support SLA,464,Shipped,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1048,Đặng Tuấn Quân,ORD-2026-0138,18/10/2026,Security Audit Package,1770,Shipped,Hải Phòng,Chuyển khoản Vietcombank
+KH-1020,Huỳnh Bảo Huy,ORD-2026-0058,06/11/2026,Dedicated Support SLA,409,Completed,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1053,Nguyễn Bảo Linh,ORD-2026-0263,15/10/2026,Security Audit Package,1234,Shipped,Cần Thơ,Ví MoMo Business
+KH-1032,Huỳnh Minh Phương,ORD-2026-0009,20/10/2026,Data Warehouse Connector,486,Pending,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1061,Hoàng Thanh Linh,ORD-2026-0075,04/11/2026,Data Warehouse Connector,501,Canceled,Hà Nội,Chuyển khoản Vietcombank
+KH-1037,Lê Thảo Phương,ORD-2026-0057,22/10/2026,Gói Cloud SaaS Pro,589,Processing,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1060,Lê Anh Trang,ORD-2026-0195,,Dedicated Support SLA,564,Processing,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1007,Phạm Thảo Hùng,ORD-2026-0204,24/10/2026,Gói Cloud SaaS Pro,934,Pending,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1046,Đặng Thảo Trang,ORD-2026-0008,21/10/2026,AI Analytics Addon,361,Shipped,Bình Dương,Chuyển khoản Vietcombank
+KH-1018,Nguyễn Quốc Linh,ORD-2026-0145,08/11/2026,API Enterprise License,1323,Shipped,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1017,Phan Thanh Vy,ORD-2026-0022,07/11/2026,Security Audit Package,2369,Canceled,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1029,Trần Tuấn Hùng,ORD-2026-0043,15/10/2026,API Enterprise License,1195,Pending,Đà Nẵng,Ví MoMo Business
+KH-1002,Nguyễn Hoàng Huy,ORD-2026-0232,23/10/2026,AI Analytics Addon,357,Processing,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1029,Trần Minh Long,ORD-2026-0114,04/11/2026,AI Analytics Addon,238,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1047,Vũ Ngọc Phương,ORD-2026-0256,31/10/2026,AI Analytics Addon,415,Canceled,Hải Phòng,Chuyển khoản Vietcombank
+KH-1035,Đặng Thảo Trang,ORD-2026-0182,09/11/2026,Security Audit Package,1369,Pending,Hà Nội,Cổng Stripe Quốc Tế
+KH-1022,Nguyễn Tuấn Hùng,ORD-2026-0107,06/11/2026,Dedicated Support SLA,453,Completed,Hà Nội,Ví MoMo Business
+KH-1019,Lê Bảo Long,ORD-2026-0126,09/11/2026,AI Analytics Addon,420,Completed,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1050,Huỳnh Thanh Vy,ORD-2026-0176,26/10/2026,Data Warehouse Connector,379,Completed,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1051,Huỳnh Quốc Trang,ORD-2026-0105,04/11/2026,Data Warehouse Connector,291,Processing,Bình Dương,Cổng Stripe Quốc Tế
+KH-1015,Phạm Gia Hùng,ORD-2026-0127,05/11/2026,API Enterprise License,852,Completed,Hà Nội,Ví MoMo Business
+KH-1021,Phạm Quốc Hùng,ORD-2026-0168,23/10/2026,Gói Cloud SaaS Pro,680,Completed,Hải Phòng,Chuyển khoản Vietcombank
+KH-1059,Phan Hoàng Huy,ORD-2026-0130,04/11/2026,AI Analytics Addon,197,Completed,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1040,Nguyễn Thanh Long,ORD-2026-0144,16/10/2026,Dedicated Support SLA,412,Pending,Cần Thơ,Chuyển khoản Vietcombank
+KH-1018,Võ Tuấn Quân,ORD-2026-0099,11/11/2026,API Enterprise License,942,Shipped,Hải Phòng,Ví MoMo Business
+KH-1047,Võ Tuấn Khang,ORD-2026-0209,01/11/2026,API Enterprise License,1391,Completed,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1037,Vũ Thanh Trang,ORD-2026-0050,21/10/2026,AI Analytics Addon,300,Processing,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1039,Trần Bảo Tùng,ORD-2026-0035,05/11/2026,Data Warehouse Connector,303,Completed,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1032,Đặng Thanh Phương,ORD-2026-0125,19/10/2026,AI Analytics Addon,391,Shipped,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1026,Đặng Tuấn Quân,ORD-2026-0003,06/11/2026,Security Audit Package,2316,Pending,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1015,Trần Hoàng Khang,ORD-2026-0244,16/10/2026,Data Warehouse Connector,464,Completed,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1043,Phan Quốc Long,ORD-2026-0092,25/10/2026,Dedicated Support SLA,643,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1011,Phạm Thanh Trang,ORD-2026-0222,26/10/2026,AI Analytics Addon,303,Shipped,Bình Dương,Cổng Stripe Quốc Tế
+KH-1015,Trần Tuấn Linh,ORD-2026-0014,05/11/2026,Gói Cloud SaaS Pro,903,Shipped,Bình Dương,Ví MoMo Business
+KH-1033,Đặng Thảo Hùng,ORD-2026-0159,07/11/2026,AI Analytics Addon,408,Completed,Đà Nẵng,Chuyển khoản Vietcombank
+KH-1017,Vũ Tuấn Hùng,ORD-2026-0116,09/11/2026,API Enterprise License,1549,Shipped,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1015,Lê Anh Phương,ORD-2026-0216,21/10/2026,Security Audit Package,1238,Canceled,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1057,Trần Hoàng Linh,ORD-2026-0081,25/10/2026,Dedicated Support SLA,394,Completed,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1039,Hoàng Bảo Tùng,ORD-2026-0048,31/10/2026,Data Warehouse Connector,408,Pending,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1037,Võ Quốc Long,ORD-2026-0036,03/11/2026,AI Analytics Addon,243,Processing,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1002,Vũ Bảo Phương,ORD-2026-0074,31/10/2026,Security Audit Package,1591,Completed,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1065,Huỳnh Bảo Khang,ORD-2026-0287,11/11/2026,Dedicated Support SLA,654,Pending,Cần Thơ,Chuyển khoản Vietcombank
+KH-1061,Vũ Hoàng Phương,ORD-2026-0086,24/10/2026,Dedicated Support SLA,316,Shipped,Đà Nẵng,Ví MoMo Business
+KH-1049,Vũ Thảo Vy,ORD-2026-0278,20/10/2026,Data Warehouse Connector,321,Shipped,Đà Nẵng,Ví MoMo Business
+KH-1031,Vũ Minh Trang,ORD-2026-0250,11/11/2026,Dedicated Support SLA,415,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1043,Lê Thảo Linh,ORD-2026-0294,01/11/2026,API Enterprise License,1673,Canceled,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1065,Lê Bảo Phương,ORD-2026-0217,08/11/2026,Dedicated Support SLA,613,Canceled,Bình Dương,Chuyển khoản Vietcombank
+KH-1037,Lê Tuấn Khang,ORD-2026-0197,11/11/2026,Security Audit Package,1361,Shipped,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1035,Đặng Tuấn Hùng,ORD-2026-0071,03/11/2026,Data Warehouse Connector,525,Canceled,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1030,Lê Thanh Quân,ORD-2026-0215,07/11/2026,Data Warehouse Connector,276,Canceled,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1026,Vũ Thanh Huy,ORD-2026-0284,02/11/2026,Security Audit Package,2317,Completed,Bình Dương,Chuyển khoản Vietcombank
+KH-1065,Vũ Minh Quân,ORD-2026-0262,29/10/2026,API Enterprise License,1564,Completed,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1024,Hoàng Gia Long,ORD-2026-0073,30/10/2026,AI Analytics Addon,244,Processing,Đà Nẵng,Ví MoMo Business
+KH-1029,Nguyễn Ngọc Trang,ORD-2026-0192,18/10/2026,AI Analytics Addon,241,Completed,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1052,Phan Minh Phương,ORD-2026-0094,11/11/2026,Gói Cloud SaaS Pro,713,Completed,Bình Dương,Cổng Stripe Quốc Tế
+KH-1046,Vũ Thanh Long,ORD-2026-0060,24/10/2026,Gói Cloud SaaS Pro,835,Pending,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1057,Phan Anh Hùng,ORD-2026-0157,29/10/2026,API Enterprise License,1125,Processing,Đà Nẵng,Ví MoMo Business
+KH-1057,Võ Ngọc Quân,ORD-2026-0123,29/10/2026,API Enterprise License,1283,Processing,Hà Nội,Ví MoMo Business
+KH-1063,Lê Quốc Tùng,ORD-2026-0061,15/10/2026,Dedicated Support SLA,499,Processing,Bình Dương,Cổng Stripe Quốc Tế
+KH-1009,Lê Tuấn Phương,ORD-2026-0285,10/11/2026,AI Analytics Addon,407,Pending,Bình Dương,Cổng Stripe Quốc Tế
+KH-1045,Nguyễn Anh Huy,ORD-2026-0069,01/11/2026,Gói Cloud SaaS Pro,669,Processing,Hà Nội,Ví MoMo Business
+KH-1052,Hoàng Thảo Khang,ORD-2026-0044,05/11/2026,Data Warehouse Connector,524,Processing,Hà Nội,Chuyển khoản Vietcombank
+KH-1057,Huỳnh Bảo Vy,ORD-2026-0153,04/11/2026,Dedicated Support SLA,455,Shipped,Cần Thơ,Chuyển khoản Vietcombank
+KH-1065,Phan Ngọc Khang,ORD-2026-0089,01/11/2026,AI Analytics Addon,316,Canceled,Hà Nội,Chuyển khoản Vietcombank
+KH-1065,Hoàng Anh Vy,ORD-2026-0290,19/10/2026,Dedicated Support SLA,476,Completed,Hải Phòng,Chuyển khoản Vietcombank
+KH-1052,Vũ Quốc Hùng,ORD-2026-0181,07/11/2026,Dedicated Support SLA,525,Pending,Đà Nẵng,Thẻ Tín Dụng Mastercard
+KH-1026,Võ Quốc Long,ORD-2026-0179,16/10/2026,Gói Cloud SaaS Pro,611,Shipped,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1014,Vũ Ngọc Linh,ORD-2026-0289,15/10/2026,Dedicated Support SLA,350,Shipped,TP. Hồ Chí Minh,Thẻ Tín Dụng Mastercard
+KH-1059,Phan Quốc Huy,ORD-2026-0201,17/10/2026,AI Analytics Addon,366,Completed,TP. Hồ Chí Minh,Cổng Stripe Quốc Tế
+KH-1006,Đặng Anh Khang,ORD-2026-0199,04/11/2026,Gói Cloud SaaS Pro,844,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1055,Lê Thanh Hùng,ORD-2026-0161,31/10/2026,Gói Cloud SaaS Pro,635,Completed,Đà Nẵng,Ví MoMo Business
+KH-1056,Huỳnh Minh Long,ORD-2026-0271,22/10/2026,Gói Cloud SaaS Pro,879,Completed,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1054,Hoàng Thanh Hùng,ORD-2026-0251,01/11/2026,Dedicated Support SLA,571,Completed,Hải Phòng,Thẻ Tín Dụng Mastercard
+KH-1012,Huỳnh Thảo Trang,ORD-2026-0135,10/11/2026,Gói Cloud SaaS Pro,493,Completed,Hải Phòng,Chuyển khoản Vietcombank
+KH-1008,Đặng Anh Huy,ORD-2026-0059,21/10/2026,Dedicated Support SLA,726,Pending,Hải Phòng,Chuyển khoản Vietcombank
+KH-1028,Võ Ngọc Vy,ORD-2026-0235,08/11/2026,Security Audit Package,1706,Completed,Cần Thơ,Cổng Stripe Quốc Tế
+KH-1049,Đặng Anh Phương,ORD-2026-0101,29/10/2026,AI Analytics Addon,272,Shipped,Bình Dương,Thẻ Tín Dụng Mastercard
+KH-1033,Võ Hoàng Long,ORD-2026-0167,16/10/2026,API Enterprise License,1784,Processing,Cần Thơ,Chuyển khoản Vietcombank
+KH-1047,Nguyễn Thảo Huy,ORD-2026-0188,27/10/2026,Security Audit Package,1843,Shipped,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
+KH-1057,Lê Tuấn Trang,ORD-2026-0096,06/11/2026,AI Analytics Addon,314,Completed,Hà Nội,Thẻ Tín Dụng Mastercard
+KH-1014,Võ Bảo Trang,ORD-2026-0275,19/10/2026,AI Analytics Addon,212,Completed,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1025,Phạm Thảo Quân,ORD-2026-0053,06/11/2026,Dedicated Support SLA,656,Pending,Hải Phòng,Cổng Stripe Quốc Tế
+KH-1059,Đặng Anh Khang,ORD-2026-0011,19/10/2026,Data Warehouse Connector,385,Completed,TP. Hồ Chí Minh,Ví MoMo Business
+KH-1013,Lê Ngọc Vy,ORD-2026-0033,17/10/2026,Security Audit Package,2301,Shipped,Cần Thơ,Ví MoMo Business
+KH-1035,Trần Tuấn Khang,ORD-2026-0143,21/10/2026,Dedicated Support SLA,686,Completed,Đà Nẵng,Cổng Stripe Quốc Tế
+KH-1009,Phan Hoàng Vy,ORD-2026-0106,22/10/2026,Gói Cloud SaaS Pro,773,Shipped,TP. Hồ Chí Minh,Chuyển khoản Vietcombank
